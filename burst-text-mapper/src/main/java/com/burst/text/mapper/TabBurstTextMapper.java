@@ -1,0 +1,30 @@
+package com.burst.text.mapper;
+
+import com.burst.text.entity.TabBurstText;
+import com.burst.text.entity.TabBurstTextExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface TabBurstTextMapper {
+    long countByExample(TabBurstTextExample example);
+
+    int deleteByExample(TabBurstTextExample example);
+
+    int deleteByPrimaryKey(String id);
+
+    int insert(TabBurstText record);
+
+    int insertSelective(TabBurstText record);
+
+    List<TabBurstText> selectByExample(TabBurstTextExample example);
+
+    TabBurstText selectByPrimaryKey(String id);
+
+    int updateByExampleSelective(@Param("record") TabBurstText record, @Param("example") TabBurstTextExample example);
+
+    int updateByExample(@Param("record") TabBurstText record, @Param("example") TabBurstTextExample example);
+
+    int updateByPrimaryKeySelective(TabBurstText record);
+
+    int updateByPrimaryKey(TabBurstText record);
+}
