@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @RestController 也是复合注解,包含了 @Controller 和 @ResponseBody
  */
 @RestController
-public class UserController {
+public class ExUserController {
 
 	@Autowired
 	private UserRepository userRepository;

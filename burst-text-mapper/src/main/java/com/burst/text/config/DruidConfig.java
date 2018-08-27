@@ -28,7 +28,7 @@ public class DruidConfig {
     private String password;
     private int initialSize;
     private int minIdle;
-    private int maxActive;
+    private int maxActive = 200;
     private long maxWait;
     private long timeBetweenEvictionRunsMillis;
     private long minEvictableIdleTimeMillis;

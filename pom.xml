@@ -14,6 +14,7 @@
         <module>burst-text-common</module>
         <module>burst-text-mapper</module>
         <module>burst-text-service</module>
+        <module>burst-text-provider-burst</module>
     </modules>
 
     <parent>
@@ -182,11 +183,13 @@
                 <artifactId>joda-time</artifactId>
                 <version>2.9.6</version>
             </dependency>
+            <!--
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${springframework.version}</version>
             </dependency>
+            -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-web</artifactId>

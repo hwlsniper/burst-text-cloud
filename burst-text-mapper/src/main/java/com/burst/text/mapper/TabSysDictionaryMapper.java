@@ -2,8 +2,10 @@ package com.burst.text.mapper;
 
 import com.burst.text.entity.TabSysDictionary;
 import com.burst.text.entity.TabSysDictionaryExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
 
 public interface TabSysDictionaryMapper {
     long countByExample(TabSysDictionaryExample example);
@@ -27,4 +29,6 @@ public interface TabSysDictionaryMapper {
     int updateByPrimaryKeySelective(TabSysDictionary record);
 
     int updateByPrimaryKey(TabSysDictionary record);
+
+    List<TabSysDictionary> querySysDictionaryList(Map<String, Object> param);
 }

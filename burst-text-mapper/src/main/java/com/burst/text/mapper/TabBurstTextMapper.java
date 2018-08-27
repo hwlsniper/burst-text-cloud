@@ -2,8 +2,11 @@ package com.burst.text.mapper;
 
 import com.burst.text.entity.TabBurstText;
 import com.burst.text.entity.TabBurstTextExample;
-import java.util.List;
+import com.burst.text.entity.TabSysDictionary;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
 
 public interface TabBurstTextMapper {
     long countByExample(TabBurstTextExample example);
@@ -27,4 +30,8 @@ public interface TabBurstTextMapper {
     int updateByPrimaryKeySelective(TabBurstText record);
 
     int updateByPrimaryKey(TabBurstText record);
+
+    List<TabBurstText> queryBurstText(Map<String, Object> param);
+
+    List<TabSysDictionary> querySysDictionary(Map<String, Object> param);
 }
