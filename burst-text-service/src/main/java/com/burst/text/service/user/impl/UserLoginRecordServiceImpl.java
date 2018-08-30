@@ -9,11 +9,13 @@ import com.burst.text.util.IdWorker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @author Administrator
  * 用户登录记录
  */
+@Service
 public class UserLoginRecordServiceImpl implements UserLoginRecordService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserLoginRecordServiceImpl.class);

@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,6 +20,7 @@ import java.util.Map;
  * 用户 token service
  * @author Administrator
  */
+@Service
 public class UserTokenServiceImpl implements UserTokenService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserTokenServiceImpl.class);

@@ -1,14 +1,17 @@
 package com.burst.text.core.tools.impl;
 
-import javax.servlet.http.HttpServletRequest;
 import com.burst.text.core.tools.ToolsService;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Administrator
  */
+@Service
 public class ToolsServiceImpl implements ToolsService {
     /**
      * <p>Title: getUUID</p>

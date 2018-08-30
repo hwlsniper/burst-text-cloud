@@ -1,6 +1,7 @@
 package com.burst.text.core.wechat;
 
 import com.burst.text.entity.TabUserInfo;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Administrator
  * 微信相关接口
  */
+@Service
 public interface WechatService {
 
     /**

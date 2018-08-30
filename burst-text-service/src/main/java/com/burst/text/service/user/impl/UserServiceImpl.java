@@ -6,7 +6,6 @@ import com.burst.text.entity.TabUserInfo;
 import com.burst.text.entity.TabUserInfoExample;
 import com.burst.text.excepte.BizException;
 import com.burst.text.mapper.TabUserInfoMapper;
-import com.burst.text.mapper.TabUserLoginRecordMapper;
 import com.burst.text.service.user.UserLoginRecordService;
 import com.burst.text.service.user.UserService;
 import com.burst.text.service.user.UserTokenService;
@@ -16,6 +15,7 @@ import com.burst.text.util.SysCommonConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.util.CollectionUtils;
@@ -23,11 +23,11 @@ import org.springframework.util.CollectionUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
-import java.util.Map;
 /**
  * @author Administrator
  * 用户 service
  */
+@Service
 public class UserServiceImpl implements UserService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);

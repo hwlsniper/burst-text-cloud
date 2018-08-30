@@ -3,7 +3,6 @@ package com.burst.text.core.wechat.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.burst.text.core.wechat.WechatService;
 import com.burst.text.entity.TabUserInfo;
-import com.burst.text.entity.TabUserInfoExample;
 import com.burst.text.mapper.TabUserInfoMapper;
 import com.burst.text.service.user.UserService;
 import com.burst.text.util.HttpUtil;
@@ -14,18 +13,16 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.CollectionUtils;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @author Administrator
  * 微信相关接口
  */
+@Service
 public class WechatServiceImpl implements WechatService {
 
     private static final Logger logger = LoggerFactory.getLogger(WechatServiceImpl.class);

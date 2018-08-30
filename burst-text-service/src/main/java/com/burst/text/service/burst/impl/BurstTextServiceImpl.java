@@ -10,6 +10,7 @@ import com.github.pagehelper.PageHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +21,7 @@ import java.util.Map;
  * @author Administrator
  * 新闻 service
  */
+@Service
 public class BurstTextServiceImpl implements BurstTextService {
 
     private static final Logger logger = LoggerFactory.getLogger(BurstTextServiceImpl.class);
