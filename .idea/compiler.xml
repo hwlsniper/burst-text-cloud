@@ -9,6 +9,7 @@
         <module name="burst-text-entity" />
         <module name="burst-text-eureka" />
         <module name="burst-text-mapper" />
+        <module name="burst-text-provider-burst" />
         <module name="burst-text-provider-user" />
         <module name="burst-text-service" />
         <module name="burst-text-util" />
@@ -16,7 +17,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="burst-text-common" target="1.8" />
-      <module name="burst-text-provider-burst" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

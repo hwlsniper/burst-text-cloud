@@ -1,24 +1,10 @@
 server:
   port: 8010
 spring:
-  #jpa:
-    #generate-ddl: false #启动的时候是否要生成 ddl 语句
-    #show-sql: true  #控制台日志打印 sql 语句
-    #hibernate:
-      #ddl-auto: none  # jpa 依赖 hibernate,此处设置启动时不做 ddl 语句的处理
-  #datasource:
-    #platform: h2  #设置数据库
-    #schema:
-    #- classpath:schema.sql  #默认值也是在该路径下,可以不配
-    #data:
-    #- classpath:data.sql  #默认值也是在该路径下,可以不配
   application:
     name: microservice-provider-user  # 建议小写
 logging:
   level:
-    root: INFO  #与下面的两个一起作用,显示 SQL语句并打印参数
-    #org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    #org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
     com.burst: DEBUG
 eureka:
   client: #每个 eureka server 都有一个 eureka client,主要是同步 eureka server之间的元数据
@@ -27,5 +13,9 @@ eureka:
     service-url:
       defaultZone: http://root:123456@localhost:8761/eureka #http://localhost:8761/eureka #指明将 eureka 注册在哪个 url 上
   instance:
+    lease-renewal-interval-in-seconds: 60
     prefer-ip-address: true   #默认是 false
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+# Mybatis配置
+mybatis:
+  mapperLocations: classpath:mappers/*.xml

@@ -1,4 +1,4 @@
-package com.burst.text;
+package com.burst.text.cloud;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -7,21 +7,15 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @author Administrator
- *
  */
-@SpringBootApplication
 @EnableEurekaClient
+@SpringBootApplication
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @MapperScan("com.burst.text.mapper")
-public class BurstTextUserApplication
+public class BurstTextBurstApplication
 {
     public static void main( String[] args )
     {
-        SpringApplication.run(BurstTextUserApplication.class, args);
+        SpringApplication.run(BurstTextBurstApplication.class, args);
     }
-
-    /**@Bean
-    public DruidDataSource getDataSource(){
-        return new DruidDataSource();
-    }*/
 }
