@@ -1,7 +1,6 @@
 package com.burst.text.service.burst;
 
 import com.burst.text.util.Result;
-import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
@@ -9,7 +8,6 @@ import java.util.Map;
  * @author Administrator
  * 新闻 service
  */
-@Service
 public interface BurstTextService {
 
     Result saveBurstText();

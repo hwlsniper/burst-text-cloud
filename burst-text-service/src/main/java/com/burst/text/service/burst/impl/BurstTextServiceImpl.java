@@ -10,6 +10,7 @@ import com.github.pagehelper.PageHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -56,6 +57,11 @@ public class BurstTextServiceImpl implements BurstTextService {
         return result;
     }
 
+    /**
+     * 爆文类型
+     * @param dataType
+     * @return
+     */
     @Override
     @Log(operationType="querySysDictionaryList操作",operationName="查询字典数据")
     public Result querySysDictionaryList(String dataType){
@@ -70,6 +76,17 @@ public class BurstTextServiceImpl implements BurstTextService {
             result.setCode(400);
             result.setMsg("查询字典数据失败!");
         }
+        return result;
+    }
+
+    /**
+     * 根据 url 拉取页面数据
+     * @param pageUrl
+     * @return
+     */
+    public Result createBurstText(String pageUrl){
+        Result result = Result.responseSuccess();
+
         return result;
     }
 }

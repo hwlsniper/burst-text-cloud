@@ -1,5 +1,6 @@
 package com.burst.text.core;
 
+import com.burst.text.entity.TabBurstText;
 import com.burst.text.upload.WebFileUtils;
 import com.burst.text.util.IdWorker;
 import org.htmlparser.Parser;
@@ -36,6 +37,13 @@ public class HtmlPageParser {
 
     private static final IdWorker idWork = new IdWorker();
 
+    /**
+     * 构造器
+     * @param strText
+     * @param strUrl
+     * @param strEncoding
+     * @param strFileName   html 文件的生成路径
+     */
     public HtmlPageParser(String strText, String strUrl, String strEncoding, String strFileName) {
         try {
             strWeb = new URL(strUrl);
@@ -46,6 +54,23 @@ public class HtmlPageParser {
         this.strText = strText;
         this.strEncoding = strEncoding;
         this.strFileName = strFileName;
+    }
+
+    /**
+     * 构造器  html 的内容不写入到文件中去
+     * @param strText
+     * @param strUrl
+     * @param strEncoding
+     */
+    public HtmlPageParser(String strText, String strUrl, String strEncoding) {
+        try {
+            strWeb = new URL(strUrl);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            return;
+        }
+        this.strText = strText;
+        this.strEncoding = strEncoding;
     }
 
     /**
@@ -345,14 +370,56 @@ public class HtmlPageParser {
         return s.replace(s1, s2);
     }
 
+    public static String getTitle(NodeList nodes) {
+        NodeList filtered = nodes.extractAllNodesThatMatch(new TagNameFilter("TITLE"), true);
+        if(null == filtered || filtered.size() == 0){
+            return null;
+        }
+
+        return null;
+    }
+
+    public  TabBurstText createdBurst(){
+        if (strWeb == null || strText == null || strEncoding == null) {
+            return null;
+        }
+
+        HashMap<String, String> urlMap = new HashMap<String, String>();
+        NodeList nodes = new NodeList();
+        try {
+            Parser parser = createParser(strText);
+            parser.setEncoding(strEncoding);
+            nodes = parser.parse(null);
+        } catch (ParserException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(getTitle(nodes));
+
+        return null;
+    }
+
+    /**
+     * 将 html 内容解析为 TabBurstText 实体对象
+     * @param pageUrl       html 访问链接
+     * @param encoding      编码格式
+     * @return
+     */
+    public static TabBurstText parseHTMLToBurst(String pageUrl, String encoding){
+        /** 通过 html 访问链接获取输入流,再将输入流转为字符串 */
+        String htmlText = getHtmlText(pageUrl, encoding);
+        HtmlPageParser pageParser = new HtmlPageParser(htmlText, pageUrl, encoding);
+        return pageParser.createdBurst();
+    }
+
     public static void main(String[] args) {
         long startMili=System.currentTimeMillis();// 开始时间
 
         // System.out.print(getImg("http://localhost:8080/chartsshow_engine/service/charting/resource/image?path=/book/icon/3f8c7212848dfb87993de1d31bce57d9.png"));
         // "https://mp.weixin.qq.com/s/lQ4awnsZYF3-nmypKp3WDA";
-        // https://wxd.sznews.com/ttwap/20180717/content_251411.html";
+        // https://mp.weixin.qq.com/s/6_i8-Q5d5R-7VU6PDN2PjQ
         // http://localhost:63342/chartsshow_web/p.html?s=438ee9f32adda180&web_mode";
-        String strUrl = "https://mp.weixin.qq.com/s/6_i8-Q5d5R-7VU6PDN2PjQ";
+        String strUrl = "https://wxd.sznews.com/ttwap/20180717/content_251411.html";
         String strEncoding = "utf-8";
         String strText1 = getHtmlText(strUrl, strEncoding);
         HtmlPageParser jciih = new HtmlPageParser(strText1, strUrl, strEncoding, "d:\\index44.html");
@@ -362,5 +429,7 @@ public class HtmlPageParser {
 
         long endMili=System.currentTimeMillis(); // 结束时间
         System.out.println("总耗时为："+(endMili-startMili)/1000+"秒");
+
+        parseHTMLToBurst(strUrl, strEncoding);
     }
 }

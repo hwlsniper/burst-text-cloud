@@ -9,8 +9,9 @@ import com.burst.text.service.user.UserTokenService;
 import com.burst.text.util.IdWorker;
 import com.burst.text.util.JsonUtils;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,13 +68,13 @@ public class SystemLogAspect {
      * @return: void
      * @throws
      */
-    @Before("ServiceAspect()")
+    /**@Before("ServiceAspect()")
     public void doBefore(JoinPoint joinPoint) {
         System.out.println("==========执行controller前置通知===============");
         if (logger.isInfoEnabled()) {
             logger.info("before " + joinPoint);
         }
-    }
+    }*/
 
     /**
      * @Title: around
@@ -84,7 +85,7 @@ public class SystemLogAspect {
      * @return: void
      * @throws
      */
-    @Around("ServiceAspect()")
+    /**@Around("ServiceAspect()")
     public void around(JoinPoint joinPoint) {
         System.out.println("==========开始执行 service 环绕通知===============");
         long start = System.currentTimeMillis();
@@ -102,9 +103,9 @@ public class SystemLogAspect {
                         + e.getMessage());
             }
         }
-    }
+    }*/
 
-    @After("ServiceAspect()")
+    /**@After("ServiceAspect()")
     public void after(JoinPoint joinPoint) {
         String userId = userTokenService.queryUserIdForToken();
         // 请求的IP
@@ -132,15 +133,15 @@ public class SystemLogAspect {
                     }
                 }
             }
-            // *========控制台输出=========*//
-            System.out.println("=====controller后置通知开始=====");
+            // ========控制台输出========= //
+            System.out.println("=====后置通知开始=====");
             System.out.println("请求方法:"
                     + (joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "()")
                     + "." + operationType);
             System.out.println("方法描述:" + operationName);
             System.out.println("请求人:" + userId);
             System.out.println("请求IP:" + ip);
-            // *========数据库日志=========*//
+            // ========数据库日志========= //
             TabSysLog log = new TabSysLog();
             //String id = "log"+idWork.nextId();
             log.setId(idWork.nextId()+"");
@@ -155,13 +156,13 @@ public class SystemLogAspect {
 
             // 保存数据库
             sysLogService.saveSysLog(log);
-            System.out.println("=====controller后置通知结束=====");
+            System.out.println("=====后置通知结束=====");
         } catch (Exception e) {
             // 记录本地异常日志
             logger.error("==后置通知异常==");
             logger.error("异常信息:{}", e.getMessage());
         }
-    }
+    }*/
 
     /**
      * @Title: afterReturn
@@ -172,13 +173,13 @@ public class SystemLogAspect {
      * @return: void
      * @throws
      */
-    @AfterReturning("ServiceAspect()")
+    /**@AfterReturning("ServiceAspect()")
     public void afterReturn(JoinPoint joinPoint) {
         System.out.println("=====执行controller后置返回通知=====");
         if (logger.isInfoEnabled()) {
             logger.info("afterReturn " + joinPoint);
         }
-    }
+    }*/
 
     /**
      * @Title: doAfterThrowing

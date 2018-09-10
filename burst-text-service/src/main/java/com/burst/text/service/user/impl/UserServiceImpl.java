@@ -143,7 +143,6 @@ public class UserServiceImpl implements UserService {
     public TabUserInfo queryUserInfo(String unionid){
         TabUserInfoExample example = new TabUserInfoExample();
         TabUserInfoExample.Criteria criteria = example.createCriteria();
-        criteria.andUnionidEqualTo(unionid);
         List<TabUserInfo> userInfos = userInfoMapper.selectByExample(example);
         if(!CollectionUtils.isEmpty(userInfos)){
             if(null != userInfos.get(0)){
@@ -151,5 +150,24 @@ public class UserServiceImpl implements UserService {
             }
         }
         return null;
+    }
+
+    /**
+     * 修改用户信息
+     * @param userInfo
+     * @return
+     */
+    @Override
+    public Result modifyUserInfo(TabUserInfo userInfo){
+        Result result = Result.responseSuccess();
+        try{
+            TabUserInfo userinfo = userInfoMapper.selectByPrimaryKey(tokenService.queryUserIdForToken());
+            userInfo.setId(userinfo.getId());
+            userInfoMapper.updateByPrimaryKeySelective(userInfo);
+        }catch(Exception ex){
+            logger.error("异常方法:{}异常信息:{}", UserServiceImpl.class.getName()+".modifyUserInfo", ex.getMessage());
+            throw new BizException(400, "修改用户信息失败!");
+        }
+        return result;
     }
 }

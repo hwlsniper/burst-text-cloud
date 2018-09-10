@@ -2,9 +2,11 @@ package com.burst.text.mapper;
 
 import com.burst.text.entity.TabBurstTextShareRecord;
 import com.burst.text.entity.TabBurstTextShareRecordExample;
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+@Mapper
 public interface TabBurstTextShareRecordMapper {
     long countByExample(TabBurstTextShareRecordExample example);
 

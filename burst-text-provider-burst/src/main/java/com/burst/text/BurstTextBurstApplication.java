@@ -1,4 +1,4 @@
-package com.burst.text.cloud;
+package com.burst.text;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -10,8 +10,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @EnableEurekaClient
 @SpringBootApplication
-//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
-@MapperScan("com.burst.text.mapper")
+//@ComponentScan(value={"com.burst.text.mapper","com.burst.text.web", "com.burst.text.service", "com.burst.text.core"})
+@MapperScan(basePackages="com.burst.text.mapper")
 public class BurstTextBurstApplication
 {
     public static void main( String[] args )

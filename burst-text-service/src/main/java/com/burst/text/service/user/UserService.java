@@ -48,4 +48,11 @@ public interface UserService {
      * @return
      */
     TabUserInfo queryUserInfo(String unionid);
+
+    /**
+     * 修改用户信息
+     * @param userInfo
+     * @return
+     */
+    Result modifyUserInfo(TabUserInfo userInfo);
 }

@@ -10,11 +10,10 @@
     <result column="mobile" jdbcType="VARCHAR" property="mobile" />
     <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
     <result column="wxqr_code" jdbcType="VARCHAR" property="wxqrCode" />
-    <result column="openid" jdbcType="VARCHAR" property="openid" />
-    <result column="unionid" jdbcType="VARCHAR" property="unionid" />
     <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
     <result column="updated_date" jdbcType="TIMESTAMP" property="updatedDate" />
   </resultMap>
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -44,6 +43,7 @@
       </foreach>
     </where>
   </sql>
+
   <sql id="Update_By_Example_Where_Clause">
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
@@ -73,10 +73,12 @@
       </foreach>
     </where>
   </sql>
+
   <sql id="Base_Column_List">
-    id, user_name, head_icon, bus_code, position, mobile, nick_name, wxqr_code, openid, 
-    unionid, created_date, updated_date
+    id, user_name, head_icon, bus_code, position, mobile, nick_name, wxqr_code,
+    created_date, updated_date
   </sql>
+
   <select id="selectByExample" parameterType="com.burst.text.entity.TabUserInfoExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -114,13 +116,13 @@
   <insert id="insert" parameterType="com.burst.text.entity.TabUserInfo">
     insert into tab_user_info (id, user_name, head_icon, 
       bus_code, position, mobile, 
-      nick_name, wxqr_code, openid, 
-      unionid, created_date, updated_date
+      nick_name, wxqr_code,
+      created_date, updated_date
       )
     values (#{id,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{headIcon,jdbcType=VARCHAR}, 
       #{busCode,jdbcType=VARCHAR}, #{position,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
-      #{nickName,jdbcType=VARCHAR}, #{wxqrCode,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, 
-      #{unionid,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP}
+      #{nickName,jdbcType=VARCHAR}, #{wxqrCode,jdbcType=VARCHAR},
+      #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP}
       )
   </insert>
 
@@ -151,12 +153,6 @@
       <if test="wxqrCode != null">
         wxqr_code,
       </if>
-      <if test="openid != null">
-        openid,
-      </if>
-      <if test="unionid != null">
-        unionid,
-      </if>
         created_date,
         updated_date,
     </trim>
@@ -184,12 +180,6 @@
       </if>
       <if test="wxqrCode != null">
         #{wxqrCode,jdbcType=VARCHAR},
-      </if>
-      <if test="openid != null">
-        #{openid,jdbcType=VARCHAR},
-      </if>
-      <if test="unionid != null">
-        #{unionid,jdbcType=VARCHAR},
       </if>
         SYSDATE(),
         SYSDATE(),
@@ -230,12 +220,6 @@
       <if test="record.wxqrCode != null">
         wxqr_code = #{record.wxqrCode,jdbcType=VARCHAR},
       </if>
-      <if test="record.openid != null">
-        openid = #{record.openid,jdbcType=VARCHAR},
-      </if>
-      <if test="record.unionid != null">
-        unionid = #{record.unionid,jdbcType=VARCHAR},
-      </if>
       <if test="record.createdDate != null">
         created_date = #{record.createdDate,jdbcType=TIMESTAMP},
       </if>
@@ -247,6 +231,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+
   <update id="updateByExample" parameterType="map">
     update tab_user_info
     set id = #{record.id,jdbcType=VARCHAR},
@@ -257,14 +242,13 @@
       mobile = #{record.mobile,jdbcType=VARCHAR},
       nick_name = #{record.nickName,jdbcType=VARCHAR},
       wxqr_code = #{record.wxqrCode,jdbcType=VARCHAR},
-      openid = #{record.openid,jdbcType=VARCHAR},
-      unionid = #{record.unionid,jdbcType=VARCHAR},
       created_date = #{record.createdDate,jdbcType=TIMESTAMP},
       updated_date = #{record.updatedDate,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.burst.text.entity.TabUserInfo">
     update tab_user_info
     <set>
@@ -289,12 +273,7 @@
       <if test="wxqrCode != null">
         wxqr_code = #{wxqrCode,jdbcType=VARCHAR},
       </if>
-      <if test="openid != null">
-        openid = #{openid,jdbcType=VARCHAR},
-      </if>
-      <if test="unionid != null">
-        unionid = #{unionid,jdbcType=VARCHAR},
-      </if>
+
       <if test="createdDate != null">
         created_date = #{createdDate,jdbcType=TIMESTAMP},
       </if>
@@ -304,6 +283,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="com.burst.text.entity.TabUserInfo">
     update tab_user_info
     set user_name = #{userName,jdbcType=VARCHAR},
@@ -313,8 +293,6 @@
       mobile = #{mobile,jdbcType=VARCHAR},
       nick_name = #{nickName,jdbcType=VARCHAR},
       wxqr_code = #{wxqrCode,jdbcType=VARCHAR},
-      openid = #{openid,jdbcType=VARCHAR},
-      unionid = #{unionid,jdbcType=VARCHAR},
       created_date = #{createdDate,jdbcType=TIMESTAMP},
       updated_date = #{updatedDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}

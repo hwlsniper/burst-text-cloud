@@ -2,9 +2,11 @@ package com.burst.text.mapper;
 
 import com.burst.text.entity.TabAdminUser;
 import com.burst.text.entity.TabAdminUserExample;
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+@Mapper
 public interface TabAdminUserMapper {
     long countByExample(TabAdminUserExample example);
 

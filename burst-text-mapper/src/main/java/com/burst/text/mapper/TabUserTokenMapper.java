@@ -2,11 +2,12 @@ package com.burst.text.mapper;
 
 import com.burst.text.entity.TabUserToken;
 import com.burst.text.entity.TabUserTokenExample;
-import java.util.List;
-import java.util.Map;
-
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+import java.util.Map;
+@Mapper
 public interface TabUserTokenMapper {
     long countByExample(TabUserTokenExample example);
 

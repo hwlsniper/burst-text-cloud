@@ -3,6 +3,7 @@ package com.burst.text.core.wechat.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.burst.text.core.wechat.WechatService;
 import com.burst.text.entity.TabUserInfo;
+import com.burst.text.entity.TabUserWechat;
 import com.burst.text.mapper.TabUserInfoMapper;
 import com.burst.text.service.user.UserService;
 import com.burst.text.util.HttpUtil;
@@ -32,7 +33,6 @@ public class WechatServiceImpl implements WechatService {
 
     @Autowired
     private TabUserInfoMapper userInfoMapper;
-
 
     /**
      * 根据 request 对象传进来的 code, 获取微信用户信息
@@ -97,10 +97,12 @@ public class WechatServiceImpl implements WechatService {
             }
 
             TabUserInfo userInfo = new TabUserInfo();
-            userInfo.setOpenid(wechatResult.getOpenid());
-            userInfo.setUnionid(wechatResult.getUnionid());
             userInfo.setNickName(wechatResult.getNickname());
             userInfo.setHeadIcon(wechatResult.getHeadimgurl());
+
+            TabUserWechat userWechat = new TabUserWechat();
+            userWechat.setOpenid(wechatResult.getOpenid());
+            userWechat.setUnionid(wechatResult.getUnionid());
 
             //此处将头像上传至服务器
 

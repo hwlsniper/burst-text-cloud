@@ -1,4 +1,4 @@
-package com.burst.text.cloud;
+package com.burst.text;
 
 import static org.junit.Assert.assertTrue;
 

@@ -2,9 +2,11 @@ package com.burst.text.mapper;
 
 import com.burst.text.entity.TabBurstTextBrowseRecord;
 import com.burst.text.entity.TabBurstTextBrowseRecordExample;
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+@Mapper
 public interface TabBurstTextBrowseRecordMapper {
     long countByExample(TabBurstTextBrowseRecordExample example);
 

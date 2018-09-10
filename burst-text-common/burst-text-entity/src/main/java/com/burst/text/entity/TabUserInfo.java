@@ -26,10 +26,6 @@ public class TabUserInfo implements Serializable {
 
     private String wxqrCode;
 
-    private String openid;
-
-    private String unionid;
-
     private Date createdDate;
 
     private Date updatedDate;
@@ -47,8 +43,6 @@ public class TabUserInfo implements Serializable {
                 ", mobile='" + mobile + '\'' +
                 ", nickName='" + nickName + '\'' +
                 ", wxqrCode='" + wxqrCode + '\'' +
-                ", openid='" + openid + '\'' +
-                ", unionid='" + unionid + '\'' +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 ", isRegister=" + isRegister +

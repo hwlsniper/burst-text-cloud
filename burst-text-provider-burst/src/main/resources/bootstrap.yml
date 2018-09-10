@@ -18,4 +18,5 @@ eureka:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
 # Mybatis配置
 mybatis:
-  mapperLocations: classpath:mappers/*.xml
+  #mapperLocations: classpath:mappers/*.xml
+  type-aliases-package: com.burst.text..entity

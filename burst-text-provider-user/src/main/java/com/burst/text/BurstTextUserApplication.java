@@ -11,17 +11,12 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @SpringBootApplication
 @EnableEurekaClient
-//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
-@MapperScan("com.burst.text.mapper")
+//@ComponentScan(value={"com.burst.text.mapper","com.burst.text.web", "com.burst.text.service", "com.burst.text.core"})
+@MapperScan(basePackages="com.burst.text.mapper")
 public class BurstTextUserApplication
 {
     public static void main( String[] args )
     {
         SpringApplication.run(BurstTextUserApplication.class, args);
     }
-
-    /**@Bean
-    public DruidDataSource getDataSource(){
-        return new DruidDataSource();
-    }*/
 }

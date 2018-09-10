@@ -2,11 +2,12 @@ package com.burst.text.mapper;
 
 import com.burst.text.entity.TabSysDictionary;
 import com.burst.text.entity.TabSysDictionaryExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
-
+@Mapper
 public interface TabSysDictionaryMapper {
     long countByExample(TabSysDictionaryExample example);
 

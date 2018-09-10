@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>burst-text-provider-user</artifactId>
+    <artifactId>burst-text-provider-poster</artifactId>
     <packaging>jar</packaging>
-    <name>burst-text-provider-user</name>
+    <name>burst-text-provider-poster</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
