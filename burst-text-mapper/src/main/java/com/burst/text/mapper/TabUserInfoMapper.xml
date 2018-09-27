@@ -10,6 +10,7 @@
     <result column="mobile" jdbcType="VARCHAR" property="mobile" />
     <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
     <result column="wxqr_code" jdbcType="VARCHAR" property="wxqrCode" />
+    <result column="user_type" jdbcType="VARCHAR" property="userType" />
     <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
     <result column="updated_date" jdbcType="TIMESTAMP" property="updatedDate" />
   </resultMap>
@@ -75,7 +76,7 @@
   </sql>
 
   <sql id="Base_Column_List">
-    id, user_name, head_icon, bus_code, position, mobile, nick_name, wxqr_code,
+    id, user_name, head_icon, bus_code, position, mobile, nick_name, wxqr_code, user_type,
     created_date, updated_date
   </sql>
 

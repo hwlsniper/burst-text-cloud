@@ -43,6 +43,14 @@ public interface UserService {
     Result queryUser();
 
     /**
+     * 通过 token 获取用户信息
+     * @return
+     */
+    TabUserInfo getUserInfo();
+
+
+
+    /**
      * 通过微信的 unionid 获取用户信息
      * @param unionid
      * @return

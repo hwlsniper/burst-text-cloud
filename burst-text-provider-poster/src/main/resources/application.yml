@@ -1,0 +1,22 @@
+server:
+  port: 8030
+spring:
+  application:
+    name: microservice-provider-poster  # 建议小写
+logging:
+  level:
+    com.burst: DEBUG
+eureka:
+  client: #每个 eureka server 都有一个 eureka client,主要是同步 eureka server之间的元数据
+    healthcheck:
+      enabled: true  #开启健康检查
+    service-url:
+      defaultZone: http://root:123456@localhost:8761/eureka #http://localhost:8761/eureka #指明将 eureka 注册在哪个 url 上
+  instance:
+    lease-renewal-interval-in-seconds: 60
+    prefer-ip-address: true   #默认是 false
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+# Mybatis配置
+mybatis:
+  #mapperLocations: classpath:mappers/*.xml
+  type-aliases-package: com.burst.text..entity

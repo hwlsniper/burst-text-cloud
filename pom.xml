@@ -16,6 +16,7 @@
         <module>burst-text-provider-burst</module>
         <module>burst-text-provider-user</module>
         <module>burst-text-provider-poster</module>
+        <module>burst-text-provider-courseware</module>
     </modules>
 
     <parent>

@@ -119,6 +119,16 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 获取 用户信息
+     * @param
+     * @return
+     */
+    @Override
+    public TabUserInfo getUserInfo(){
+        return userInfoMapper.selectByPrimaryKey(tokenService.queryUserIdForToken());
+    }
+
+    /**
+     * 通过 token 获取 用户信息
      * @return
      */
     @Override

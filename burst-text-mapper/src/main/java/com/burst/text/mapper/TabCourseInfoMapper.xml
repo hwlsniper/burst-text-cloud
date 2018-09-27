@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.burst.text.mapper.TabCourseInfoMapper">
+
+    <!-- 查询  课件类型 -->
+    <select id="queryCourseType" resultType="com.burst.text.dto.CourseTypeBean">
+        select
+            sd.code courseType,
+            sd.name courseTypeName
+        tab_sys_dictionary sd
+        inner join tab_poster_template pt on sd.code = pt.poster_type and pd.is_enable = 1
+        where sd.data_type = 'courseware_type'
+        group by sd.code
+        order by sd.seq
+    </select>
+
+    <!-- 获取 课件列表数据 -->
+    <select id="queryCourseWareList" resultType="com.burst.text.entity.TabCourseInfo" parameterType="map">
+      select
+        id
+        couser_title couserTitle,
+        course_img courseImg,
+        use_scope useScope,
+        price
+        original_price originalPrice,
+      from tab_course_info
+      where is_enable = 1
+      <if test="couserType != null and couserType !=''">
+        and couser_type = #{couserType}
+      </if>
+    </select>
+
+    <!-- 获取 课件详情 -->
+    <select id="queryCourseWare" resultType="string" parameterType="map">
+        select
+          couser_url
+        from tab_course_info
+        where is_enable = 1
+        and id = #{courseId}
+    </select>
+</mapper>
