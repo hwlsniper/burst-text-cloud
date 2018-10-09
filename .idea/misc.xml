@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/burst-text-eureka" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/burst-text-provider-burst/pom.xml" />
         <option value="$PROJECT_DIR$/burst-text-provider-courseware/pom.xml" />
+        <option value="$PROJECT_DIR$/burst-text-zuul/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

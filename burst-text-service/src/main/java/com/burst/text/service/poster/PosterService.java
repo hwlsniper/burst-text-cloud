@@ -1,5 +1,6 @@
 package com.burst.text.service.poster;
 
+import com.burst.text.entity.TabPosterTemplate;
 import com.burst.text.util.Result;
 import org.springframework.stereotype.Service;
 
@@ -34,4 +35,11 @@ public interface PosterService {
      * @return
      */
     Result queryUserInfo(int flag);
+
+    /**
+     * 保存海报信息
+     * @param poster
+     * @return
+     */
+    Result savePoster(TabPosterTemplate poster);
 }

@@ -87,7 +87,7 @@ public class IdWorker {
      * @return: long
      * @throws
      */
-    public synchronized long nextId() {
+    public synchronized String nextId() {
         long timestamp = timeGen();
         if (timestamp < lastTimestamp) {
             throw new RuntimeException(String.format(
@@ -109,7 +109,7 @@ public class IdWorker {
         long nextId = ((timestamp - twepoch) << timestampLeftShift) | (datacenterId << datacenterIdShift)
                 | (workerId << workerIdShift) | sequence;
 
-        return nextId;
+        return nextId+"";
     }
 
     /**

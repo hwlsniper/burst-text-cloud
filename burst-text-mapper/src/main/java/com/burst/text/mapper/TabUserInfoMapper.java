@@ -29,4 +29,6 @@ public interface TabUserInfoMapper {
     int updateByPrimaryKeySelective(TabUserInfo record);
 
     int updateByPrimaryKey(TabUserInfo record);
+
+    String queryPlatformQrCode();
 }

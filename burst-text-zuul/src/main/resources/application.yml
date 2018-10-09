@@ -1,0 +1,11 @@
+zuul:
+  routes:
+    user:
+      path: /**
+      url:  microservice-provider-user
+    poster:
+      path: /**
+      serviceId: microservice-provider-poster
+    courseware:
+      path: /**
+      serviceId: microservice-provider-courseware

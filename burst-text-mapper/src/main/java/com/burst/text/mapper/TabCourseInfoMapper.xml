@@ -21,7 +21,7 @@
         couser_title couserTitle,
         course_img courseImg,
         use_scope useScope,
-        price
+        price,
         original_price originalPrice,
       from tab_course_info
       where is_enable = 1

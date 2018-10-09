@@ -14,5 +14,5 @@ public interface TabPosterTemplateMapper {
 
     List<TabPosterTemplate> queryPosterTempList(Map<String, Object> param);
 
-    String queryPosterInfo(Map<String, Object> param);
+    Map<String, String> queryPosterInfo(Map<String, Object> param);
 }

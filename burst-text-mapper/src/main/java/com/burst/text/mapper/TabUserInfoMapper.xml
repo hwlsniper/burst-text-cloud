@@ -298,4 +298,11 @@
       updated_date = #{updatedDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
+  <!-- 查询平台二维码 -->
+  <select id="queryPlatformQrCode" resultType="string">
+    SELECT wxqr_code wxqrCode FROM
+    tab_user_info
+    WHERE user_type = 'ut0001'
+  </select>
 </mapper>

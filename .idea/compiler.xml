@@ -15,6 +15,7 @@
         <module name="burst-text-provider-user" />
         <module name="burst-text-service" />
         <module name="burst-text-util" />
+        <module name="burst-text-zuul" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

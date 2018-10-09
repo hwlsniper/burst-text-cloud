@@ -1,12 +1,12 @@
-server:
-  port: 8010
 spring:
   application:
-    name: microservice-provider-user  # 建议小写
+    name: gateway-service-zuul
   mvc:
     static-path-pattern: /images/** #此处是否可以配置多个 uri?? 类中该属性是一个String类型,所以只能配置一个 uri,如果要配置多个 uri 需要继承 WebMvcConfigurerAdapter 类
   resources:
     static-locations: file:${web.upload-path.headIcon},file:${web.upload-path.posterTemp},file:${web.upload-path.rqcodeIcon},classpath:/static/,classpath:/public/,classpath:/resources/,classpath:/META-INF/resources/
+server:
+  port: 8080
 logging:
   level:
     com.burst: DEBUG
@@ -20,10 +20,6 @@ eureka:
     lease-renewal-interval-in-seconds: 60
     prefer-ip-address: true   #默认是 false
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
-# Mybatis配置
-mybatis:
-  #mapper-locations: classpath:mappers/*.xml
-  type-aliases-package: com.burst.text.entity
 web:
   upload-path:
     headIcon: D:/busrt-text/images/headIcon/

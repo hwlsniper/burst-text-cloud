@@ -18,8 +18,7 @@
     <select id="queryPosterTempList" parameterType="map" resultType="com.burst.text.entity.TabPosterTemplate">
         select
             id,
-            min_poster minPoster,
-            max_poster maxPoster
+            min_poster minPoster
         from
         tab_poster_template
         where is_enable = 1
@@ -29,9 +28,10 @@
     </select>
 
     <!-- 查询海报详情数据 -->
-    <select id="queryPosterInfo" parameterType="map" resultType="string">
+    <select id="queryPosterInfo" parameterType="map" resultType="map">
         select
-            max_poster maxPoster
+            max_poster maxPoster,
+            use_scope useScope
         from
         tab_poster_template
         where is_enable = 1
