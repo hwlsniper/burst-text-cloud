@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.burst.text.mapper.BurstTextMapper">
+    <resultMap id="BaseResultMap" type="com.burst.text.model.BurstTextBean">
+        <result column="id" jdbcType="VARCHAR" property="burstId"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="title_img" jdbcType="VARCHAR" property="titleImg"/>
+        <result column="burst_type" jdbcType="VARCHAR" property="burstType"/>
+        <result column="burst_type_name" jdbcType="VARCHAR" property="burstTypeName"/>
+        <result column="browse_num" jdbcType="INTEGER" property="browseNum"/>
+        <result column="share_num" jdbcType="INTEGER" property="shareNum"/>
+        <result column="is_top" jdbcType="INTEGER" property="isTop"/>
+        <result column="top_name" jdbcType="VARCHAR" property="topName"/>
+        <result column="is_enable" jdbcType="INTEGER" property="isEnable"/>
+        <result column="public_status" jdbcType="VARCHAR" property="publicStatus"/>
+        <result column="updated_date" jdbcType="VARCHAR" property="updatedDate"/>
+    </resultMap>
+
+    <!-- 查询爆文数据 -->
+    <select id="queryBurstList" resultMap="BaseResultMap" parameterType="map">
+        SELECT
+        tb.id,
+        tb.title,
+        tb.title_img,
+        tb.burst_type,
+        ts.`name` burst_type_name,
+        tb.browse_num,
+        tb.share_num,
+        tb.is_top,
+        CASE
+        WHEN tb.is_top = 0 THEN
+        '否'
+        ELSE
+        '是'
+        END top_name,
+        tb.is_enable,
+        CASE
+        WHEN tb.is_enable = 1 THEN
+        '已发布'
+        ELSE
+        '未发布'
+        END public_status,
+        DATE_FORMAT(tb.updated_date,'%Y-%m-%d %H:%i:%s') updated_date
+        FROM
+        tab_burst_text tb
+        INNER JOIN tab_sys_dictionary ts ON tb.burst_type = ts.`code`
+        AND ts.data_type = 'burst_type'
+        <if test="userName != null and userName !=''">
+            AND tu.user_name = #{userName}
+        </if>
+        <if test="passWord != null and passWord !=''">
+            AND tu.pass_word = #{passWord}
+        </if>
+        ORDER BY tb.updated_date DESC
+    </select>
+
+    <resultMap id="BurstResultMap" type="com.burst.text.model.BurstTextInfo" extends="BaseResultMap">
+        <result column="short_title" jdbcType="VARCHAR" property="shortTitle"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="is_top" jdbcType="VARCHAR" property="isTop"/>
+    </resultMap>
+
+    <!-- 修改页查询 -->
+    <select id="queryBurstText" parameterType="map" resultMap="BurstResultMap">
+        SELECT
+        tb.id,
+        tb.title,
+        tb.short_title,
+        tb.title_img,
+        tb.burst_type,
+        ts.`name` burst_type_name,
+        tb.browse_num,
+        tb.share_num,
+        tb.content,
+        tb.is_top
+        FROM
+        tab_burst_text tb
+        INNER JOIN tab_sys_dictionary ts ON tb.burst_type = ts.`code`
+        where 1 = 1
+        <if test="burstId != null and burstId !=''">
+            and tb.id = #{burstId}
+        </if>
+    </select>
+
+    <!-- 保存 -->
+    <insert id="saveBurstText" parameterType="com.burst.text.model.BurstTextInfo">
+        insert into tab_burst_text
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="burstId != null and burstId !=''">id,</if>
+            <if test="title != null and title !=''">title,</if>
+            <if test="userId != null and userId !=''">user_id,</if>
+            <if test="shortTitle != null and shortTitle !=''">short_title,</if>
+            <if test="titleImg != null and titleImg !=''">title_img,</if>
+            <if test="content != null and content !=''">content,</if>
+            <if test="burstSource != null and burstSource !=''">burst_source,</if>
+            <if test="burstType != null and burstType !=''">burst_type,</if>
+            <if test="burstAscripte != null and burstAscripte !=''">burst_ascripte,</if>
+            created_date,
+            updated_date,
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="burstId != null and burstId !=''">#{burstId},</if>
+            <if test="title != null and title !=''">#{title},</if>
+            <if test="userId != null and userId !=''">#{userId},</if>
+            <if test="shortTitle != null and shortTitle !=''">#{shortTitle},</if>
+            <if test="titleImg != null and titleImg !=''">#{titleImg},</if>
+            <if test="content != null and content !=''">#{content},</if>
+            <if test="burstSource != null and burstSource !=''">#{burstSource},</if>
+            <if test="burstType != null and burstType !=''">#{burstType},</if>
+            <if test="burstAscripte != null and burstAscripte !=''">#{burstAscripte},</if>
+            SYSDATE(),
+            SYSDATE(),
+        </trim>
+    </insert>
+
+    <!-- 修改 -->
+    <update id="updateBurstText" parameterType="com.burst.text.model.BurstTextInfo">
+        update tab_burst_text
+        <set>
+            <if test="title != null and title !=''">title = #{title},</if>
+            <if test="userId != null and userId !=''">user_id = #{userId},</if>
+            <if test="shortTitle != null and shortTitle !=''">short_title = #{shortTitle},</if>
+            <if test="titleImg != null and titleImg !=''">title_img = #{titleImg},</if>
+            <if test="content != null and content !=''">content = #{content},</if>
+            <if test="burstSource != null and burstSource !=''">burst_source = #{burstSource},</if>
+            <if test="burstType != null and burstType !=''">burst_type = #{burstType},</if>
+            <if test="burstAscripte != null and burstAscripte !=''">burst_ascripte = #{burstAscripte},</if>
+            <if test="isTop != null">is_top = #{isTop},</if>
+            <if test="isEnable != null">is_enable = #{isEnable},</if>
+            updated_date = SYSDATE()
+        </set>
+        where id = #{burstId}
+    </update>
+</mapper>

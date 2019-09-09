@@ -46,13 +46,17 @@ public class DruidConfig {
     private String connectionProperties;
     private boolean useGlobalDataSourceStat;
 
-    /** Druid 监控 Servlet 配置参数 */
+    /**
+     * Druid 监控 Servlet 配置参数
+     */
     private String druidRegistrationUrl;
     private boolean resetEnable;
     private String loginUsername;
     private String loginPassword;
 
-    /** Filters 配置参数 */
+    /**
+     * Filters 配置参数
+     */
     private String filtersUrlPatterns;
     private String exclusions;
     private int sessionStatMaxCount;
@@ -86,8 +90,7 @@ public class DruidConfig {
 
         try {
             dataSource.setFilters(filters);
-        }
-        catch(SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             logger.error("Druid URL过滤设置失败", e);
         }

@@ -1,5 +1,6 @@
 package com.burst.text.service.course;
 
+import com.burst.text.entity.TabCourseInfo;
 import com.burst.text.util.Result;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +14,14 @@ public interface CourseWareService {
 
     /**
      * 获取 课件类型(分类)
+     *
      * @return
      */
     Result queryCourseType();
 
     /**
      * 获取 课件列表数据
+     *
      * @param param
      * @param pageNum
      * @param pageSize
@@ -28,8 +31,17 @@ public interface CourseWareService {
 
     /**
      * 获取 课件详情
+     *
      * @param courseId
      * @return
      */
     Result queryCourseWare(String courseId);
+
+    /**
+     * 保存课件数据
+     *
+     * @param courseInfo
+     * @return
+     */
+    Result saveCourseWare(TabCourseInfo courseInfo);
 }

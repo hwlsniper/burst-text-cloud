@@ -26,23 +26,32 @@ import java.util.Map;
  * html 解析
  */
 public class HtmlPageParser {
-    /**网址*/
+    /**
+     * 网址
+     */
     private URL strWeb = null;
-    /**编码*/
+    /**
+     * 编码
+     */
     private String strEncoding = null;
-    /**网页文本*/
+    /**
+     * 网页文本
+     */
     private String strText = null;
-    /**导出路径*/
+    /**
+     * 导出路径
+     */
     private String strFileName = null;
 
     private static final IdWorker idWork = new IdWorker();
 
     /**
      * 构造器
+     *
      * @param strText
      * @param strUrl
      * @param strEncoding
-     * @param strFileName   html 文件的生成路径
+     * @param strFileName html 文件的生成路径
      */
     public HtmlPageParser(String strText, String strUrl, String strEncoding, String strFileName) {
         try {
@@ -58,6 +67,7 @@ public class HtmlPageParser {
 
     /**
      * 构造器  html 的内容不写入到文件中去
+     *
      * @param strText
      * @param strUrl
      * @param strEncoding
@@ -75,12 +85,13 @@ public class HtmlPageParser {
 
     /**
      * 将InputStream转换成按字符编码的String
+     *
      * @param in
      * @param encoding
      * @return
      * @throws Exception
      */
-    public static String InputStreamTOString(InputStream in, String encoding)  throws Exception {
+    public static String InputStreamTOString(InputStream in, String encoding) throws Exception {
         ByteArrayOutputStream outStream = new ByteArrayOutputStream();
         byte[] data = new byte[1024 * 1000];
         int count = -1;
@@ -93,11 +104,12 @@ public class HtmlPageParser {
 
     /**
      * 将InputStream转换成byte数组
+     *
      * @param in
      * @return
      * @throws Exception
      */
-    public static byte[] InputStreamTOByte(InputStream in)  throws Exception {
+    public static byte[] InputStreamTOByte(InputStream in) throws Exception {
         ByteArrayOutputStream outStream = new ByteArrayOutputStream();
         byte[] data = new byte[1024 * 1000];
         int count = -1;
@@ -110,6 +122,7 @@ public class HtmlPageParser {
 
     /**
      * 根据链接获取html源代码
+     *
      * @param strUrl
      * @param strEncoding
      * @return
@@ -127,6 +140,7 @@ public class HtmlPageParser {
 
     /**
      * 相对路径转绝对路径
+     *
      * @param strWeb
      * @param innerURL
      * @return
@@ -181,6 +195,7 @@ public class HtmlPageParser {
 
     /**
      * 获取页面的js链接
+     *
      * @param nodes
      * @param urlMap
      */
@@ -202,12 +217,13 @@ public class HtmlPageParser {
 
     /**
      * js代码写入html
+     *
      * @param urlMap
      */
     private void jsInHtml(HashMap<String, String> urlMap) {
         String key = null;
         String val = null;
-        for (Iterator iter = urlMap.entrySet().iterator(); iter.hasNext();) {
+        for (Iterator iter = urlMap.entrySet().iterator(); iter.hasNext(); ) {
             Map.Entry entry = (Map.Entry) iter.next();
             key = (String) entry.getKey(); //绝对路径
             val = (String) entry.getValue(); //html页面中引入的js标签
@@ -219,6 +235,7 @@ public class HtmlPageParser {
 
     /**
      * 获取页面的css链接
+     *
      * @param nodes
      * @param urlMap
      */
@@ -248,12 +265,13 @@ public class HtmlPageParser {
 
     /**
      * css代码写入html
+     *
      * @param urlMap
      */
     private void cssInHtml(HashMap<String, String> urlMap) {
         String key = null;
         String val = null;
-        for (Iterator iter = urlMap.entrySet().iterator(); iter.hasNext();) {
+        for (Iterator iter = urlMap.entrySet().iterator(); iter.hasNext(); ) {
             Map.Entry entry = (Map.Entry) iter.next();
             key = (String) entry.getKey(); //绝对路径
             val = (String) entry.getValue(); //html页面中引入的css标签
@@ -265,6 +283,7 @@ public class HtmlPageParser {
 
     /**
      * 获取网页包含的图像链接,并将图片的base64编码写入html
+     *
      * @param nodes
      */
     private void extractAllImageNodes(NodeList nodes) {
@@ -290,7 +309,7 @@ public class HtmlPageParser {
                 String innerURL = src;
                 String absoluteURL = makeAbsoluteURL(strWeb, innerURL);
                 String imgBase64 = getImg("https://mmbiz.qpic.cn/mmbiz_gif/XYVBicfteF7Hnwvvibj7qYa3PsNNicIEoLnibAfe48udasgu9qsQJFjNP3VfVdNMtSkiaaWFwoulg1YHjoiasYoAibn9Q/640?wx_fmt=gif"); //getImg(absoluteURL);
-                String path = "d:/imgs/"+idWork.nextId()+".gif";
+                String path = "d:/imgs/" + idWork.nextId() + ".gif";
                 WebFileUtils.generateImage(imgBase64, path);
                 StringBuilder sb = new StringBuilder();
                 sb.append("data:image/jpeg;base64,");
@@ -304,6 +323,7 @@ public class HtmlPageParser {
 
     /**
      * 根据链接获得图片的base64编码
+     *
      * @param imgUrl
      * @return
      */
@@ -311,7 +331,7 @@ public class HtmlPageParser {
         URL url = null;
         InputStream in = null;
         HttpURLConnection httpUrl = null;
-        try{
+        try {
             url = new URL(imgUrl);
             httpUrl = (HttpURLConnection) url.openConnection();
             in = httpUrl.getInputStream();
@@ -320,7 +340,7 @@ public class HtmlPageParser {
             // 对字节数组Base64编码
             BASE64Encoder encoder = new BASE64Encoder();
             return encoder.encode(data);// 返回Base64编码过的字节数组字符串
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return "get image error";
         }
@@ -328,6 +348,7 @@ public class HtmlPageParser {
 
     /**
      * 主应用
+     *
      * @return
      */
     public boolean compile() {
@@ -372,14 +393,14 @@ public class HtmlPageParser {
 
     public static String getTitle(NodeList nodes) {
         NodeList filtered = nodes.extractAllNodesThatMatch(new TagNameFilter("TITLE"), true);
-        if(null == filtered || filtered.size() == 0){
+        if (null == filtered || filtered.size() == 0) {
             return null;
         }
 
         return null;
     }
 
-    public  TabBurstText createdBurst(){
+    public TabBurstText createdBurst() {
         if (strWeb == null || strText == null || strEncoding == null) {
             return null;
         }
@@ -401,11 +422,12 @@ public class HtmlPageParser {
 
     /**
      * 将 html 内容解析为 TabBurstText 实体对象
-     * @param pageUrl       html 访问链接
-     * @param encoding      编码格式
+     *
+     * @param pageUrl  html 访问链接
+     * @param encoding 编码格式
      * @return
      */
-    public static TabBurstText parseHTMLToBurst(String pageUrl, String encoding){
+    public static TabBurstText parseHTMLToBurst(String pageUrl, String encoding) {
         /** 通过 html 访问链接获取输入流,再将输入流转为字符串 */
         String htmlText = getHtmlText(pageUrl, encoding);
         HtmlPageParser pageParser = new HtmlPageParser(htmlText, pageUrl, encoding);
@@ -413,7 +435,7 @@ public class HtmlPageParser {
     }
 
     public static void main(String[] args) {
-        long startMili=System.currentTimeMillis();// 开始时间
+        long startMili = System.currentTimeMillis();// 开始时间
 
         // System.out.print(getImg("http://localhost:8080/chartsshow_engine/service/charting/resource/image?path=/book/icon/3f8c7212848dfb87993de1d31bce57d9.png"));
         // "https://mp.weixin.qq.com/s/lQ4awnsZYF3-nmypKp3WDA";
@@ -423,12 +445,12 @@ public class HtmlPageParser {
         String strEncoding = "utf-8";
         String strText1 = getHtmlText(strUrl, strEncoding);
         HtmlPageParser jciih = new HtmlPageParser(strText1, strUrl, strEncoding, "d:\\index44.html");
-        if(jciih.compile()) {
+        if (jciih.compile()) {
             System.out.println("导出成功");
         }
 
-        long endMili=System.currentTimeMillis(); // 结束时间
-        System.out.println("总耗时为："+(endMili-startMili)/1000+"秒");
+        long endMili = System.currentTimeMillis(); // 结束时间
+        System.out.println("总耗时为：" + (endMili - startMili) / 1000 + "秒");
 
         parseHTMLToBurst(strUrl, strEncoding);
     }

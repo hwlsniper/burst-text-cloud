@@ -6,7 +6,7 @@ spring:
   mvc:
     static-path-pattern: /images/** #此处是否可以配置多个 uri?? 类中该属性是一个String类型,所以只能配置一个 uri,如果要配置多个 uri 需要继承 WebMvcConfigurerAdapter 类
   resources:
-    static-locations: file:${web.upload-path.headIcon},file:${web.upload-path.posterTemp},file:${web.upload-path.rqcodeIcon},classpath:/static/,classpath:/public/,classpath:/resources/,classpath:/META-INF/resources/
+    static-locations: file:${web.upload-path.headIcon},file:${web.upload-path.posterTemp},file:${web.upload-path.rqcodeIcon},file:${web.upload-path.courseFile},file:${web.upload-path.courseImage},file:${web.upload-path.burstImgs},file:${web.upload-path.defaultPath},classpath:/static/,classpath:/public/,classpath:/resources/,classpath:/META-INF/resources/
 logging:
   level:
     com.burst: DEBUG
@@ -29,3 +29,7 @@ web:
     headIcon: D:/busrt-text/images/headIcon/
     posterTemp: D:/busrt-text/images/posterTemp/
     rqcodeIcon: D:/busrt-text/images/rqcodeIcon/
+    courseFile: D:/busrt-text/courses/files/
+    courseImage: D:/busrt-text/courses/images/
+    burstImgs: D:/busrt-text/burst/images/
+    defaultPath: D:/busrt-text/default/files/

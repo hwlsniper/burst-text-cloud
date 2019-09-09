@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/burst-text-provider-burst/pom.xml" />
         <option value="$PROJECT_DIR$/burst-text-provider-courseware/pom.xml" />
         <option value="$PROJECT_DIR$/burst-text-zuul/pom.xml" />
+        <option value="$PROJECT_DIR$/burst-text-admin/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

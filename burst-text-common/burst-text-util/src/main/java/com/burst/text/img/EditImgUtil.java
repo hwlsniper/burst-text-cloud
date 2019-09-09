@@ -15,13 +15,14 @@ public class EditImgUtil {
 
     /**
      * 指定大小进行缩放
+     *
      * @param fromImg
      * @param toImg
      * @param width
      * @param heigth
      * @throws IOException
      */
-    public static void imgZoom(String fromImg, String toImg, int width, int heigth) throws IOException{
+    public static void imgZoom(String fromImg, String toImg, int width, int heigth) throws IOException {
         Thumbnails.of(fromImg)
                 .size(width, heigth)
                 .toFile(toImg);
@@ -29,12 +30,13 @@ public class EditImgUtil {
 
     /**
      * 按比例缩放
+     *
      * @param fromImg
      * @param toImg
      * @param ratio
      * @throws IOException
      */
-    public static void imgZoom(String fromImg, String toImg, float ratio) throws IOException{
+    public static void imgZoom(String fromImg, String toImg, float ratio) throws IOException {
         Thumbnails.of(fromImg)
                 .scale(ratio)
                 .toFile(toImg);
@@ -42,13 +44,14 @@ public class EditImgUtil {
 
     /**
      * 不按照比例，指定大小进行缩放
+     *
      * @param fromImg
      * @param toImg
      * @param width
      * @param heigth
      * @throws IOException
      */
-    public static void imgZoomNotPro(String fromImg, String toImg, int width, int heigth) throws IOException{
+    public static void imgZoomNotPro(String fromImg, String toImg, int width, int heigth) throws IOException {
         Thumbnails.of(fromImg)
                 .size(width, heigth)
                 .keepAspectRatio(false)
@@ -57,14 +60,15 @@ public class EditImgUtil {
 
     /**
      * 旋转
+     *
      * @param fromImg
      * @param toImg
      * @param width
      * @param heigth
-     * @param rotate    旋转的角度
+     * @param rotate  旋转的角度
      * @throws IOException
      */
-    public static void rotateImg(String fromImg, String toImg, int width, int heigth, int rotate) throws IOException{
+    public static void rotateImg(String fromImg, String toImg, int width, int heigth, int rotate) throws IOException {
         Thumbnails.of(fromImg)
                 .size(width, heigth)
                 .rotate(rotate)
@@ -73,6 +77,7 @@ public class EditImgUtil {
 
     /**
      * 添加水印
+     *
      * @param fromImg
      * @param width
      * @param heigth
@@ -85,7 +90,7 @@ public class EditImgUtil {
      */
     public static void watermark(String fromImg, int width, int heigth,
                                  Position positions, String wmImg, float wmRatio,
-                                 float ratio, String toImg) throws IOException{
+                                 float ratio, String toImg) throws IOException {
         Thumbnails.of(fromImg)
                 .size(width, heigth)
                 .watermark(positions, ImageIO.read(new File(wmImg)), wmRatio)
@@ -95,6 +100,7 @@ public class EditImgUtil {
 
     /**
      * 裁剪 -- 指定大小
+     *
      * @param fromImg
      * @param positions
      * @param trimWidth
@@ -106,7 +112,7 @@ public class EditImgUtil {
      */
     public static void trimMakeSize(String fromImg, Position positions,
                                     int trimWidth, int trimHeigth,
-                                    int width, int heigth, String toImg) throws IOException{
+                                    int width, int heigth, String toImg) throws IOException {
         Thumbnails.of(fromImg)
                 .sourceRegion(positions, trimWidth, trimHeigth)
                 .size(width, heigth)
@@ -116,6 +122,7 @@ public class EditImgUtil {
 
     /**
      * 裁剪 -- 按坐标
+     *
      * @param fromImg
      * @param xCoordinate
      * @param yCoordinate
@@ -127,8 +134,8 @@ public class EditImgUtil {
      * @throws IOException
      */
     public static void trimRatio(String fromImg, int xCoordinate, int yCoordinate,
-                                    int trimWidth, int trimHeigth,
-                                    int width, int heigth, String toImg) throws IOException{
+                                 int trimWidth, int trimHeigth,
+                                 int width, int heigth, String toImg) throws IOException {
         Thumbnails.of(fromImg)
                 .sourceRegion(xCoordinate, yCoordinate, trimWidth, trimHeigth)
                 .size(width, heigth)
@@ -138,6 +145,7 @@ public class EditImgUtil {
 
     /**
      * 转化图像格式
+     *
      * @param fromImg
      * @param width
      * @param heigth
@@ -155,6 +163,7 @@ public class EditImgUtil {
 
     /**
      * 输出到OutputStream
+     *
      * @param toImg
      * @param fromImg
      * @param width
@@ -170,6 +179,7 @@ public class EditImgUtil {
 
     /**
      * 输出到BufferedImage
+     *
      * @param fromImg
      * @param width
      * @param heigth
@@ -249,14 +259,14 @@ public class EditImgUtil {
         //sourceRegion()
         //图片中心400*400的区域
         Thumbnails.of("images/a380_1280x1024.jpg")
-                .sourceRegion(Positions.CENTER, 400,400)
+                .sourceRegion(Positions.CENTER, 400, 400)
                 .size(200, 200)
                 .keepAspectRatio(false)
                 .toFile("c:/a380_region_center.jpg");
 
         //图片右下400*400的区域
         Thumbnails.of("images/a380_1280x1024.jpg")
-                .sourceRegion(Positions.BOTTOM_RIGHT, 400,400)
+                .sourceRegion(Positions.BOTTOM_RIGHT, 400, 400)
                 .size(200, 200)
                 .keepAspectRatio(false)
                 .toFile("c:/a380_region_bootom_right.jpg");

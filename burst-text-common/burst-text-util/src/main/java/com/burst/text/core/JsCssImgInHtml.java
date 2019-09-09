@@ -50,7 +50,7 @@ public class JsCssImgInHtml {
     }
 
     // 将InputStream转换成按字符编码的String
-    public static String InputStreamTOString(InputStream in, String encoding)  throws Exception {
+    public static String InputStreamTOString(InputStream in, String encoding) throws Exception {
         ByteArrayOutputStream outStream = new ByteArrayOutputStream();
         byte[] data = new byte[1024 * 1000];
         int count = -1;
@@ -62,7 +62,7 @@ public class JsCssImgInHtml {
     }
 
     // 将InputStream转换成byte数组
-    public static byte[] InputStreamTOByte(InputStream in)  throws Exception {
+    public static byte[] InputStreamTOByte(InputStream in) throws Exception {
         ByteArrayOutputStream outStream = new ByteArrayOutputStream();
         byte[] data = new byte[1024 * 1000];
         int count = -1;
@@ -153,7 +153,7 @@ public class JsCssImgInHtml {
     private void jsInHtml(HashMap<String, String> urlMap) {
         String key = null;
         String val = null;
-        for (Iterator iter = urlMap.entrySet().iterator(); iter.hasNext();) {
+        for (Iterator iter = urlMap.entrySet().iterator(); iter.hasNext(); ) {
             Map.Entry entry = (Map.Entry) iter.next();
             key = (String) entry.getKey(); //绝对路径
             val = (String) entry.getValue(); //html页面中引入的js标签
@@ -187,11 +187,12 @@ public class JsCssImgInHtml {
             }
         }
     }
+
     //css代码写入html
     private void cssInHtml(HashMap<String, String> urlMap) {
         String key = null;
         String val = null;
-        for (Iterator iter = urlMap.entrySet().iterator(); iter.hasNext();) {
+        for (Iterator iter = urlMap.entrySet().iterator(); iter.hasNext(); ) {
             Map.Entry entry = (Map.Entry) iter.next();
             key = (String) entry.getKey(); //绝对路径
             val = (String) entry.getValue(); //html页面中引入的css标签
@@ -200,6 +201,7 @@ public class JsCssImgInHtml {
             strText = replace(strText, val, sb.toString());
         }
     }
+
     //获取网页包含的图像链接,并将图片的base64编码写入html
     private void extractAllImageNodes(NodeList nodes) {
         NodeList filtered = nodes.extractAllNodesThatMatch(new TagNameFilter("IMG"), true);
@@ -220,12 +222,13 @@ public class JsCssImgInHtml {
             }
         }
     }
+
     //根据链接获得图片的base64编码
     public static String getImg(String imgUrl) {
         URL url = null;
         InputStream in = null;
         HttpURLConnection httpUrl = null;
-        try{
+        try {
             url = new URL(imgUrl);
             httpUrl = (HttpURLConnection) url.openConnection();
             in = httpUrl.getInputStream();
@@ -239,7 +242,7 @@ public class JsCssImgInHtml {
             // 对字节数组Base64编码
             BASE64Encoder encoder = new BASE64Encoder();
             return encoder.encode(data);// 返回Base64编码过的字节数组字符串
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return "get image error";
         }
@@ -279,19 +282,20 @@ public class JsCssImgInHtml {
     }
 
     public static void main(String[] args) {
-        long startMili=System.currentTimeMillis();// 开始时间
+        long startMili = System.currentTimeMillis();// 开始时间
 
         //System.out.print(getImg("http://localhost:8080/chartsshow_engine/service/charting/resource/image?path=/book/icon/3f8c7212848dfb87993de1d31bce57d9.png"));
         String strUrl = "https://mp.weixin.qq.com/s/lQ4awnsZYF3-nmypKp3WDA";//https://wxd.sznews.com/ttwap/20180717/content_251411.html";//http://localhost:63342/chartsshow_web/p.html?s=438ee9f32adda180&web_mode";
         String strEncoding = "utf-8";
         String strText1 = getHtmlText(strUrl, strEncoding);
         JsCssImgInHtml jciih = new JsCssImgInHtml(strText1, strUrl, strEncoding, "d:\\index11.html");
-        if(jciih.compile()) {
+        if (jciih.compile()) {
             System.out.println("导出成功");
-        };
+        }
+        ;
 
-        long endMili=System.currentTimeMillis(); // 结束时间
-        System.out.println("总耗时为："+(endMili-startMili)/1000+"秒");
+        long endMili = System.currentTimeMillis(); // 结束时间
+        System.out.println("总耗时为：" + (endMili - startMili) / 1000 + "秒");
     }
 
 }

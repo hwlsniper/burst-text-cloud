@@ -3,6 +3,9 @@ server:
 spring:
   application:
     name: microservice-provider-burst  # 建议小写
+  devtools:
+    restart:
+      enabled: true
 logging:
   level:
     com.burst: DEBUG

@@ -17,7 +17,9 @@ public class ConstantStatus {
     public static final Integer PARAM_INVALID = 102;
     public static final String MSG_PARAM_INVALID = "参数异常";
 
-    /** 响应失败*/
+    /**
+     * 响应失败
+     */
     public static final Integer RESPONSE_ERROR = 1;
     public static final String MSG_RESPONSE_ERROR = "请求失败，请重试";
 

@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @MapperScan({"com.burst.text.mapper.**"})
 public class MybatisPlusConfig {
-	@Bean
-	public PaginationInterceptor paginationInterceptor() {
-		PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
-		paginationInterceptor.setDialectType(DBType.MYSQL.getDb());
-		return paginationInterceptor;
-	}
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
+        paginationInterceptor.setDialectType(DBType.MYSQL.getDb());
+        return paginationInterceptor;
+    }
 }

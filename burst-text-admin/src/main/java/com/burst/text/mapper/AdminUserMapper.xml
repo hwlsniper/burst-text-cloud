@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.burst.text.mapper.AdminUserMapper">
+    <resultMap id="BaseResultMap" type="com.burst.text.model.AdminUserBean">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="pass_word" jdbcType="VARCHAR" property="passWord"/>
+        <result column="head_icon" jdbcType="VARCHAR" property="headIcon"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="is_enable" jdbcType="VARCHAR" property="isEnable"/>
+        <result column="created_date" jdbcType="TIMESTAMP" property="createdDate"/>
+        <result column="updated_date" jdbcType="TIMESTAMP" property="updatedDate"/>
+    </resultMap>
+
+    <!-- 查询用户数据 -->
+    <select id="queryAdminUser" resultMap="BaseResultMap" parameterType="map">
+        select id, user_name, pass_word, head_icon, user_id from tab_admin_user tu
+        where tu.is_enable = 1
+        <if test="userName != null and userName !=''">
+            AND tu.user_name = #{userName}
+        </if>
+        <if test="passWord != null and passWord !=''">
+            AND tu.pass_word = #{passWord}
+        </if>
+    </select>
+</mapper>

@@ -5,13 +5,14 @@
 <generatorConfiguration>
     <!--数据库驱动-->
     <!--<classPathEntry    location="mysql-connector-java-5.0.8-bin.jar"/>-->
-    <context id="DB2Tables"  targetRuntime="MyBatis3">
+    <context id="DB2Tables" targetRuntime="MyBatis3">
         <commentGenerator>
             <property name="suppressDate" value="true"/>
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
         <!--数据库链接地址账号密码-->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost/burst-text" userId="root" password="123456">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.5.89:3306/erp"
+                        userId="dzj-app" password="dzjapp">
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
@@ -31,6 +32,14 @@
         </javaClientGenerator>
         <!--生成对应表及类名-->
 
+        <table tableName="tab_sale_log"
+               domainObjectName="SaleLog">
+        </table>
+
+        <!--
+        <table tableName="tab_menu_info"
+               domainObjectName="MenuInfo">
+        </table>
         <table tableName="tab_admin_user"
                domainObjectName="TabAdminUser">
         </table>
@@ -66,6 +75,6 @@
         </table>
         <table tableName="tab_user_token"
                domainObjectName="TabUserToken">
-        </table>
+        </table> -->
     </context>
 </generatorConfiguration>

@@ -1,11 +1,14 @@
 zuul:
   routes:
-    user:
+    burst:
       path: /**
-      url:  microservice-provider-user
-    poster:
-      path: /**
-      serviceId: microservice-provider-poster
-    courseware:
-      path: /**
-      serviceId: microservice-provider-courseware
+      url: microservice-provider-burst
+    #user:
+      #path: /**
+      #url:  microservice-provider-user
+    #poster:
+      #path: /**
+      #serviceId: microservice-provider-poster
+    #courseware:
+      #path: /**
+      #serviceId: microservice-provider-courseware

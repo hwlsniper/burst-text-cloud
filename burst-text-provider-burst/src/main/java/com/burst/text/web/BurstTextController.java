@@ -5,7 +5,7 @@ import com.burst.text.util.MathUtil;
 import com.burst.text.util.Result;
 import com.burst.text.util.SysCommonConstant;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 爆文
+ *
  * @author Administrator
  */
 @RestController
@@ -24,41 +26,58 @@ public class BurstTextController {
 
     /**
      * 查询爆文类型
+     *
      * @param request
      * @return
      */
-    @PostMapping("/burstText/querySysDictionary")
-    public Result querySysDictionary(HttpServletRequest request){
+    @GetMapping("/burstText/queryBurstTextType")
+    public Result queryBurstTextType(HttpServletRequest request) {
         Result result = Result.responseSuccess();
         String dataType = request.getParameter("dataType");
-        if(null == dataType || "".equals(dataType)){
+        if (null == dataType || "".equals(dataType)) {
             dataType = SysCommonConstant.BURST_TYPE;
         }
-        result = burstTextService.querySysDictionaryList(dataType);
+        result = burstTextService.queryBurstTextType(dataType);
         return result;
     }
 
     /**
      * 查询爆文列表
+     *
      * @param request
      * @return
      */
-    @PostMapping("/burstText/queryBurstText")
-    public Result queryBurstText(HttpServletRequest request){
+    @GetMapping("/burstText/queryBurstTextList")
+    public Result queryBurstTextList(HttpServletRequest request, String burstType) {
         Result result = Result.responseSuccess();
         Map<String, Object> param = new HashMap<>(2);
+        param.put("burstType", burstType);
         int pageNum = MathUtil.toInt(request.getParameter("pageNum"), 1);
-        int pageSize = MathUtil.toInt(request.getParameter("pageNum"), 20);
-        result = burstTextService.queryBurstText(param, pageNum, pageSize);
+        int pageSize = MathUtil.toInt(request.getParameter("pageSize"), 20);
+        result = burstTextService.queryBurstTextList(param, pageNum, pageSize);
+        return result;
+    }
+
+    /**
+     * 查询爆文详情
+     *
+     * @param burstId
+     * @return
+     */
+    @GetMapping("/burstText/queryBurstText")
+    public Result queryBurstText(String burstId) {
+        Result result = Result.responseSuccess();
+        result = burstTextService.queryBurstText(burstId);
         return result;
     }
 
     /**
      * 创建爆文
+     *
      * @param request
      * @return
      */
-    public Result createBurstText(HttpServletRequest request, @RequestParam(required = true) String pageUrl){
+    public Result createBurstText(HttpServletRequest request, @RequestParam String pageUrl) {
         Result result = Result.responseSuccess();
 
         return result;

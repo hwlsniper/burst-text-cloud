@@ -9,15 +9,12 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 /**
  * @author Administrator
- *
  */
 @SpringBootApplication
 @EnableEurekaClient
-@MapperScan(basePackages="com.burst.text.mapper")
-public class BurstTextUserApplication
-{
-    public static void main( String[] args )
-    {
+@MapperScan(basePackages = "com.burst.text.mapper")
+public class BurstTextUserApplication {
+    public static void main(String[] args) {
         SpringApplication.run(BurstTextUserApplication.class, args);
     }
 

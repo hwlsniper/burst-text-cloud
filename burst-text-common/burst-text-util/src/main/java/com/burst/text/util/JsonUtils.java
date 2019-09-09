@@ -7,11 +7,10 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * @ClassName:  JsonUtils
+ * @ClassName: JsonUtils
  * @Description:自定义响应结构
  * @author: 天刀-盛泽荣
- * @date:   2018年6月10日 下午9:41:23
- *
+ * @date: 2018年6月10日 下午9:41:23
  * @Copyright: 2018 www.tydic.com Inc. All rights reserved.
  * 注意：本内容仅限于***内部传阅，禁止外泄以及用于其他的商业目
  */
@@ -21,6 +20,7 @@ public class JsonUtils {
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     /**
+     * @throws
      * @Title: objectToJson
      * @Description: 将对象转换成json字符串
      * @author: 天刀-盛泽荣
@@ -28,7 +28,6 @@ public class JsonUtils {
      * @param: @param data
      * @param: @return
      * @return: String
-     * @throws
      */
     public static String objectToJson(Object data) {
         try {
@@ -41,6 +40,7 @@ public class JsonUtils {
     }
 
     /**
+     * @throws
      * @Title: jsonToPojo
      * @Description: 将json结果集转化为对象
      * @author: 天刀-盛泽荣
@@ -49,7 +49,6 @@ public class JsonUtils {
      * @param: @param beanType
      * @param: @return
      * @return: T
-     * @throws
      */
     public static <T> T jsonToPojo(String jsonData, Class<T> beanType) {
         try {
@@ -62,6 +61,7 @@ public class JsonUtils {
     }
 
     /**
+     * @throws
      * @Title: jsonToList
      * @Description: 将json数据转换成pojo对象list
      * @author: 天刀-盛泽荣
@@ -70,9 +70,8 @@ public class JsonUtils {
      * @param: @param beanType
      * @param: @return
      * @return: List<T>
-     * @throws
      */
-    public static <T>List<T> jsonToList(String jsonData, Class<T> beanType) {
+    public static <T> List<T> jsonToList(String jsonData, Class<T> beanType) {
         JavaType javaType = MAPPER.getTypeFactory().constructParametricType(List.class, beanType);
         try {
             List<T> list = MAPPER.readValue(jsonData, javaType);

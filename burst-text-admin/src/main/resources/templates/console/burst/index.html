@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:include="console/header">
+</head>
+<body>
+<section class="content-header">
+    <h1>爆文管理</h1>
+    <small>爆文管理</small>
+</section>
+<section class="content table-content">
+    <table id="dataGrid"></table>
+</section>
+<div id="toolbar">
+    <a href="/console/burst/from" class="btn btn-primary">添加爆文</a>
+</div>
+<div th:include="console/footer"></div>
+</body>
+<script type="text/javascript">
+    $table = $("#dataGrid");
+    $(function () {
+        initDataGrid();
+    });
+
+    function initDataGrid() {
+        $table.bootstrapTable({
+            height: tableModel.getHeight(),
+            idField: "burstId",
+            columns: [
+                {title: "标题", field: "title", class: "text-center"},
+                {title: "图片", field: "titleImg", class: "text-center", events: operateEvents, formatter: showImg},
+                {title: "类型", field: "burstTypeName", sortable: true, class: "text-center"},
+                {title: "浏览次数", field: "browseNum", sortable: true, class: "text-center"},
+                {title: "分享次数", field: "shareNum", sortable: true, class: "text-center"},
+                {field: "isTop", visible: false},
+                {title: "是否置顶", field: "topName", sortable: true, class: "text-center"},
+                {field: "isEnable", visible: false},
+                {title: "状态", field: "publicStatus", sortable: true, class: "text-center"},
+                {title: "更新时间", field: "updatedDate", sortable: true, class: "text-center"},
+                {title: "操作", field: "operate", align: 'center', class: "text-center", formatter: operateFormatter}
+            ],
+            url: '/console/burst/list',
+            queryParams: function (params) {
+                return params;
+            },
+            responseHandler: function (res) {
+                return {
+                    rows: res.result.pageInfo.list,
+                    total: res.result.pageInfo.total
+                }
+            },
+            search: true,
+            searchOnEnterKey: true,
+            sortName: 'updatedDate',
+            sortOrder: 'asc',
+            pagination: true,
+            sidePagination: 'server',
+            toolbar: "#toolbar",
+            pageSize: 20,
+            pageList: [20, 40, 50, 100],
+            showRefresh: true,
+            showToggle: true
+        });
+    }
+
+    function operateFormatter(value, row, index) {
+        var isTopName = row.isTop == 0 ? '置顶' : '取消置顶';
+        var isTop = row.isTop == 0 ? 1 : 0;
+        var topIcon = row.isTop == 0 ? 'glyphicon-arrow-up' : 'glyphicon-arrow-down';
+        var editTop = "isTop";
+
+        var isEnableName = row.isEnable == 0 ? '发布' : '取消发布';
+        var isEnable = row.isEnable == 0 ? 1 : 0;
+        var enableIcon = row.isEnable == 0 ? 'glyphicon-folder-open' : 'glyphicon-folder-close';
+        var editPub = "isEnable";
+        console.log(row);
+        var burstId = row.burstId;
+        //console.log(burstId);
+        return [
+            '<a href="/console/burst/from?burstId=' + burstId + '" >',
+            '<i class="glyphicon glyphicon-edit"></i>&nbsp;修改',
+            '</a> <br/>',
+            '<a href="javascript:void(0);" onclick="releaseTop(\'' + burstId + '\', ' + isTop + ', \'' + editTop + '\')">',
+            '<i class="glyphicon ' + topIcon + '"></i>&nbsp;' + isTopName,
+            '</a>  <br/>',
+            '<a href="javascript:void(0);" onclick="releaseTop(\'' + burstId + '\', ' + isEnable + ', \'' + editPub + '\')">',
+            '<i class="glyphicon ' + enableIcon + '"></i>&nbsp;' + isEnableName,
+            '</a>'
+        ].join('');
+        //document.write(str);
+    }
+
+    /**
+     * 列表中显示图片
+     * @param value
+     * @param row
+     * @param index
+     * @returns {string}
+     */
+    function showImg(value, row, index) {
+        var html = '';
+        if (value.length > 0) {
+            var pictures = value.split(",");
+            for (var i in pictures) {
+                html += '<a class = "view"  href="javascript:void(0)"><img id="pic-preview" src="' + pictures[i] + '" class="img-polaroid" style="width: 100px; height: 100px;"/></a>&nbsp;&nbsp;';
+            }
+        }
+        return html;
+    }
+
+    function releaseTop(burstId, mark, editType) {
+        // var a = '109111344531316736'; 在 JS 中如果数字类过长则会导致最终的值发送改变,所以最好是传入字符串
+        $.ajax({
+            url: 'releaseTop',
+            method: 'POST',
+            data: {"burstId": burstId, "mark": mark, "editType": editType},
+            async: true,
+            success: function (result) {
+                var status = result != null ? result.status : 0;
+                var message = result != null ? result.msg : "修改失败!";
+                if (status == 1) {
+                    Ewin.confirm({message: "修改成功！"}).on(function (e) {
+                        $("#dataGrid").bootstrapTable('refresh');
+                    });
+                } else {
+                    Ewin.confirm({message: message}).on(function (e) {
+
+                    });
+                }
+            }
+        });
+    }
+
+    /**
+     * 图片 点击事件,将图片放大
+     * @type {{"click .view": Window.operateEvents.click .view}}
+     */
+    window.operateEvents = {
+        'click .view': function (e, value, row, index) {
+            //console.log(e.srcElement.currentSrc);
+            layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 0,
+                area: 'auto',
+                offset: ['100px', '200px'], //同时定义top、left坐标
+                skin: 'layui-layer-nobg', //没有背景色
+                shadeClose: true,
+                content: '<img src="' + e.srcElement.currentSrc + '"/>'
+            });
+        }
+    };
+</script>
+</html>

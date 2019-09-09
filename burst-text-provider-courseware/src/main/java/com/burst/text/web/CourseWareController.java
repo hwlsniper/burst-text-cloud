@@ -20,10 +20,11 @@ public class CourseWareController {
 
     /**
      * 获取课件类型
+     *
      * @return
      */
     @GetMapping("/courseware/courseType")
-    public Result queryCourseType(){
+    public Result queryCourseType() {
         Result result = Result.responseSuccess();
         result = courseWareService.queryCourseType();
         return result;
@@ -31,12 +32,13 @@ public class CourseWareController {
 
     /**
      * 获取课件列表
+     *
      * @param request
      * @param courseType
      * @return
      */
     @GetMapping("/courseware/queryCourseList")
-    public Result queryCourseWareList(HttpServletRequest request, @RequestParam String courseType){
+    public Result queryCourseWareList(HttpServletRequest request, @RequestParam String courseType) {
         Result result = Result.responseSuccess();
         Map<String, Object> param = new HashMap<>();
         param.put("courseType", courseType);
@@ -48,12 +50,13 @@ public class CourseWareController {
 
     /**
      * 获取课件详情
+     *
      * @param request
      * @param courseId
      * @return
      */
     @GetMapping("/courseware/queryCourseWare")
-    public Result queryCourseWare(HttpServletRequest request, @RequestParam String courseId){
+    public Result queryCourseWare(HttpServletRequest request, @RequestParam String courseId) {
         Result result = Result.responseSuccess();
         result = courseWareService.queryCourseWare(courseId);
         return result;

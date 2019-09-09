@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:include="console/header">
+</head>
+<body>
+<section class="content">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title" th:text="'爆文'+${#strings.isEmpty(burstText.burstId)?'添加':'修改'}"></h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" id="burstForm" method="post">
+                        <input type="hidden" name="burstId" id="burstId" th:value="${burstText.burstId}"/>
+                        <input type="hidden" name="titleImg" id="titleImg" th:value="${burstText.titleImg}"/>
+                        <div class="form-group">
+                            <label for="title" class="col-sm-2 control-label">标题</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="title" class="form-control" id="title"
+                                       th:value="${burstText.title}"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="shortTitle" class="col-sm-2 control-label">副标题</label>
+                            <div class="col-sm-10">
+                                <textarea name="shortTitle" class="form-control" id="shortTitle" rows="3"
+                                          style="min-width: 90%" th:text="${burstText.shortTitle}"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="isTop" class="col-sm-2 control-label">是否置顶</label>
+                            <div class="col-sm-10">
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="isTop" id="isTop"
+                                           th:checked="${#strings.equals(burstText.isTop, 1)}" value="1" th:text="是"/>
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="isTop" id="isTop0"
+                                           th:checked="${#strings.equals(burstText.isTop, 0)}" value="0" th:text="否"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="burstType" class="col-sm-2 control-label">爆文类型</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="burstType" name="burstType">
+                                    <option th:each="burstTypes:${burstTypeLists}"
+                                            th:selected="${#strings.equals(burstText.burstType, burstTypes.code)}"
+                                            th:value="${burstTypes.code}" th:text="${burstTypes.name}"/>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="burstType" class="col-sm-2 control-label">爆文图片</label>
+                            <div class="col-sm-10">
+                                <ul id="mulitBox" class="users-list clearfix"></ul>
+                                <button onclick="uploadModel.upload_multi_image('图片上传','mulitBox','item-tpl','', 'burstImgs');"
+                                        type="button" class="btn btn-default">上传图片
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="burstType" class="col-sm-2 control-label">爆文内容</label>
+                            <div class="col-sm-10">
+                                <script id="content" name="content" type="text/plain"
+                                        th:utext="${burstText.content}"></script>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" class="btn btn-default" id="submitBtn" onclick="submitBurst();">
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:include="console/footer"></div>
+<script type="text/html" id="item-tpl">
+    <li id="saved-image{id}">
+        <input id="filedir-{id}" type="hidden" name="filedir" value="{filedir}"/>
+        <input id="photo-{id}" type="hidden" name="photo_urls[]" value="{filepath}"/>
+        <img id="photo-{id}-preview" src="{url}" style="height:128px;width: 128px;"/>
+        <input class="form-control" id="photo-{id}-name" type="hidden" name="photo_names[]" value="{name}"
+               style="width: 200px;" title="图片名称"/>
+        <a href="javascript:(function(){$('#saved-image{id}').remove();})();">移除</a>
+    </li>
+</script>
+<script type="text/javascript" th:inline="javascript">
+    //<![CDATA[
+    $(function () {
+        //var ue = UE.getEditor("content");
+        //设置宽高
+        var editor = UE.ui.Editor({initialFrameHeight: 300, initialFrameWidth: '100%'});
+        editor.render("content");
+        //loadEdit();
+
+        var titleImgs = [[${burstText.titleImgs}]];
+        //console.log(titleImgs);
+        if (titleImgs != null && titleImgs.length > 0) {
+            uploadModel.show_multi_image('图片上传', 'mulitBox', 'item-tpl', 'burstImgs', titleImgs);
+        }
+
+    });
+
+    function submitBurst() {
+        var titleImg = "";
+        $('input[name="photo_names[]"]').each(function (i, item) {
+            //alert(item.value);
+            titleImg += item.value + ",";
+        });
+
+        $("#titleImg").val(titleImg);
+        var data = $('#burstForm').serialize();
+        //不可以使用解码,解码会导致富文本中的内容有问题,解码后会将富文本内容中的空格转为加号
+        //var submitData = decodeURIComponent(data,true);
+
+        $.ajax({
+            url: '/console/burst/save',
+            data: data,
+            method: 'POST',
+            cache: false,//false是不缓存，true为缓存
+            async: true,//true为异步，false为同步
+            success: function (result) {
+                //请求成功时
+                //console.log(result);
+                var status = result != null ? result.status : 0;
+                var message = result != null ? result.msg : "提交失败!";
+                if (status == 1) {
+                    Ewin.confirm({message: "数据保存成功！"}).on(function (e) {
+                        if (e) {
+                            window.location.href = "index";
+                        }
+                    });
+                } else {
+                    Ewin.confirm({message: message}).on(function (e) {
+
+                    });
+                }
+            }
+        });
+    }
+
+    function loadEdit() {
+        setTimeout("UE.getEditor('content').execCommand('insertHtml',$('#contentHtml').html().trim());", 500);
+    }
+
+    //]]>
+</script>
+</body>
+</html>

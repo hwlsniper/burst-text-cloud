@@ -14,40 +14,38 @@ import java.util.regex.Pattern;
  */
 public class MathUtil {
 
-    static String[] units = { "", "十", "百", "千", "万", "十万", "百万", "千万", "亿", "十亿", "百亿", "千亿", "万亿" };
-    static char[] numArray = { '零', '一', '二', '三', '四', '五', '六', '七', '八', '九' };
+    static String[] units = {"", "十", "百", "千", "万", "十万", "百万", "千万", "亿", "十亿", "百亿", "千亿", "万亿"};
+    static char[] numArray = {'零', '一', '二', '三', '四', '五', '六', '七', '八', '九'};
 
     private MathUtil() {
     }
 
 
-
-    public static String format(double d, String pattern)
-    {
+    public static String format(double d, String pattern) {
         /***/
-        DecimalFormat df1  =  new  DecimalFormat("####.000");
+        DecimalFormat df1 = new DecimalFormat("####.000");
         return df1.format(d);
     }
 
     /**
      * 格式化KM
+     *
      * @param d
      * @return
      */
-    public static String formatKm(double d)
-    {
-        return  formatDouble(d, "#0.00");
+    public static String formatKm(double d) {
+        return formatDouble(d, "#0.00");
     }
 
 
     /**
      * 格式化KM
+     *
      * @param d
      * @return
      */
-    public static String formatPrice(double d)
-    {
-        return  formatDouble(d, "#0.##");
+    public static String formatPrice(double d) {
+        return formatDouble(d, "#0.##");
     }
 
 
@@ -114,7 +112,7 @@ public class MathUtil {
         return result;
     }
 
-    public static boolean equals(Integer value, Integer value2){
+    public static boolean equals(Integer value, Integer value2) {
 
         if (value == null || value2 == null) {
             return false;
@@ -136,12 +134,10 @@ public class MathUtil {
     }
 
 
-
     public static Integer toInteger(Integer s, Integer defaultValue) {
-        if (s == null){
+        if (s == null) {
             return defaultValue;
-        }
-        else {
+        } else {
             return s;
         }
     }
@@ -156,8 +152,7 @@ public class MathUtil {
     }
 
     public static int toInt(Integer integer, int defaultValue) {
-        if (integer == null)
-        {
+        if (integer == null) {
             return defaultValue;
         }
         return integer.intValue();
@@ -184,8 +179,7 @@ public class MathUtil {
     }
 
     public static Integer[] toIntegerArr(String[] strArray) {
-        if (ArrayUtils.isEmpty(strArray))
-        {
+        if (ArrayUtils.isEmpty(strArray)) {
             return null;
         }
         Integer[] resultArr = new Integer[strArray.length];
@@ -218,7 +212,7 @@ public class MathUtil {
     }
 
 
-    public static Integer[] toIntegerArr(String s, String splitor,Integer[] filter) {
+    public static Integer[] toIntegerArr(String s, String splitor, Integer[] filter) {
         if (StringUtils.isBlank(s)) {
             return null;
         }
@@ -235,7 +229,7 @@ public class MathUtil {
             }
         }
 
-        Integer[] filterValue = {-1,0};
+        Integer[] filterValue = {-1, 0};
         resultArr = (Integer[]) ArrayUtils.removeElement(resultArr, filterValue);
         return resultArr;
     }
@@ -324,7 +318,7 @@ public class MathUtil {
         return result;
     }
 
-    public static Double toDouble(String s,int scale, Double defaultValue) {
+    public static Double toDouble(String s, int scale, Double defaultValue) {
         if (StringUtils.isBlank(s)) {
             return defaultValue;
         }
@@ -365,26 +359,26 @@ public class MathUtil {
     }
 
     /**
+     * @throws ：
      * @Title : getBigDecimal
      * @功能描述: 将 Object 转为 BigDecimal
      * @设定文件：@param value
      * @设定文件：@return
      * @返回类型：BigDecimal
-     * @throws ：
      */
     public static BigDecimal getBigDecimal(Object value) {
         BigDecimal ret = null;
-        if( value != null ) {
-            if( value instanceof BigDecimal ) {
+        if (value != null) {
+            if (value instanceof BigDecimal) {
                 ret = (BigDecimal) value;
-            } else if( value instanceof String ) {
-                ret = new BigDecimal( (String) value );
-            } else if( value instanceof BigInteger) {
-                ret = new BigDecimal( (BigInteger) value );
-            } else if( value instanceof Number ) {
-                ret = new BigDecimal( ((Number)value).doubleValue() );
+            } else if (value instanceof String) {
+                ret = new BigDecimal((String) value);
+            } else if (value instanceof BigInteger) {
+                ret = new BigDecimal((BigInteger) value);
+            } else if (value instanceof Number) {
+                ret = new BigDecimal(((Number) value).doubleValue());
             } else {
-                throw new ClassCastException("Not possible to coerce ["+value+"] from class "+value.getClass()+" into a BigDecimal.");
+                throw new ClassCastException("Not possible to coerce [" + value + "] from class " + value.getClass() + " into a BigDecimal.");
             }
         }
         return ret;
@@ -405,14 +399,13 @@ public class MathUtil {
      * 功能：格式化双精度数,四舍五入 <br>
      *
      * @param d
-     * @param pattern
-     *            ########0<br>
-     *            ########0.0<br>
-     *            ########0.00<br>
-     *            ########0.000<br>
-     *            ########0.0000<br>
-     *            ########0.00000<br>
-     *            ##.######最高6位精度123.456789 等
+     * @param pattern ########0<br>
+     *                ########0.0<br>
+     *                ########0.00<br>
+     *                ########0.000<br>
+     *                ########0.0000<br>
+     *                ########0.00000<br>
+     *                ##.######最高6位精度123.456789 等
      * @return
      */
     public static String formatDouble(double d, String pattern) {
@@ -423,16 +416,14 @@ public class MathUtil {
      * 功能：格式化双精度数,四舍五入 <br>
      *
      * @param d
-     * @param pattern
-     *            ########0<br>
-     *            ########0.0<br>
-     *            ########0.00<br>
-     *            ########0.000<br>
-     *            ########0.0000<br>
-     *            ########0.00000<br>
-     *            ##.######最高6位精度123.456789 等
-     * @param roundingMode
-     *            {@link java.math.RoundingMode#HALF_UP}
+     * @param pattern      ########0<br>
+     *                     ########0.0<br>
+     *                     ########0.00<br>
+     *                     ########0.000<br>
+     *                     ########0.0000<br>
+     *                     ########0.00000<br>
+     *                     ##.######最高6位精度123.456789 等
+     * @param roundingMode {@link java.math.RoundingMode#HALF_UP}
      * @return
      */
     public static String formatDouble(double d, String pattern, RoundingMode roundingMode) {
@@ -478,11 +469,8 @@ public class MathUtil {
     }
 
     /**
-     *
-     * @param number
-     *            数据值
-     * @param scale
-     *            保留小时点位数
+     * @param number 数据值
+     * @param scale  保留小时点位数
      * @return 返回经过四舍五入的小数
      */
     public static Object round(Object number, int scale) {
@@ -517,10 +505,8 @@ public class MathUtil {
     }
 
     /**
-     *
      * @param number
-     * @param bitLength
-     *            8||16||32
+     * @param bitLength 8||16||32
      * @return
      */
     public static String toUnsignBinaryString(int number, int bitLength) {
@@ -542,10 +528,8 @@ public class MathUtil {
     }
 
     /**
-     *
      * @param number
-     * @param bitLength
-     *            8||16||32||64
+     * @param bitLength 8||16||32||64
      * @return
      */
     public static String toBinaryString(long number, int bitLength) {
@@ -564,11 +548,12 @@ public class MathUtil {
 
     /**
      * 获取非空数字
+     *
      * @param value
      * @param defaultValue
      * @return
      */
-    public static Integer getNotNullInteger(Integer value,Integer defaultValue){
+    public static Integer getNotNullInteger(Integer value, Integer defaultValue) {
         if (value == null) {
             return defaultValue;
         }
@@ -605,13 +590,13 @@ public class MathUtil {
     }
 
     /**
+     * @throws ：
      * @Title : isInteger
      * @功能描述: 判断字符串全是整型数字
      * @设定文件：@param str
      * @设定文件：@return
      * @返回类型：boolean
      * @创建人 ：何文亮
-     * @throws ：
      */
     public static boolean isInteger(String str) {
         Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
@@ -619,15 +604,15 @@ public class MathUtil {
     }
 
     /**
+     * @throws ：
      * @Title : isNumber
-     * @功能描述: 判断字符串全是数字(整型、浮点型都可以)
+     * @功能描述: 判断字符串全是数字(整型 、 浮点型都可以)
      * @设定文件：@param str
      * @设定文件：@return
      * @返回类型：boolean
      * @创建人 ：何文亮
-     * @throws ：
      */
-    public static boolean isNumber(String str){
+    public static boolean isNumber(String str) {
         String reg = "^[0-9]+(.[0-9]+)?$";
         return str.matches(reg);
     }
