@@ -41,9 +41,7 @@ public class TextExtractor {
     /**
      * 提取正文，判断传入HTML，若是主题类网页，则抽取正文
      *
-     * @param html
-     *            网页HTML字符串
-     *
+     * @param html 网页HTML字符串
      * @return 网页正文string
      */
     public String extract(String html) {
@@ -60,6 +58,7 @@ public class TextExtractor {
 
     /**
      * 高亮显示
+     *
      * @param html 网页原文
      * @return 加入高亮显示后的网页原文
      */
@@ -74,18 +73,18 @@ public class TextExtractor {
 
         List<String> htmlLines = Arrays.asList(html.split("\n"));
         for (TextLine textLine : lines) {
-            if(textLine.getLineNumber() >= htmlLines.size()){
+            if (textLine.getLineNumber() >= htmlLines.size()) {
                 continue;
             }
             if (textLine.isContent()) {
                 Element bodyElement = Jsoup.parse(textLine.getLineHtml()).body();
-                if(!textLine.getLineHtml().trim().startsWith("<") || !textLine.getLineHtml().trim().endsWith(">")){
-                    bodyElement.html("<span class='x-boilerpipe-mark1'>"+bodyElement.html()+"<span>");
-                }else{
+                if (!textLine.getLineHtml().trim().startsWith("<") || !textLine.getLineHtml().trim().endsWith(">")) {
+                    bodyElement.html("<span class='x-boilerpipe-mark1'>" + bodyElement.html() + "<span>");
+                } else {
                     for (Element element : bodyElement.children()) {
 //						System.out.println(element.outerHtml());
 //						element.addClass("x-boilerpipe-mark1");
-                        element.html("<span class='x-boilerpipe-mark1'>"+element.html()+"</span>");
+                        element.html("<span class='x-boilerpipe-mark1'>" + element.html() + "</span>");
                     }
                 }
                 htmlLines.set(textLine.getLineNumber(), bodyElement.html());
@@ -101,8 +100,10 @@ public class TextExtractor {
         document.head().prepend("<style type='text/css'>.x-boilerpipe-mark1 { text-decoration:none; background-color: #ffff42 !important; color: black !important; visibility:visible !important;}</style>");
         return document.html();
     }
+
     /**
      * 预处理
+     *
      * @param html
      * @return
      */
@@ -122,11 +123,8 @@ public class TextExtractor {
     /**
      * 判断传入HTML，若是主题类网页，则抽取正文；否则输出<b>"unkown"</b>。
      *
-     * @param html
-     *            网页HTML字符串
-     * @param *flag*
-     *            true进行主题类判断, 省略此参数则默认为false
-     *
+     * @param html   网页HTML字符串
+     * @param *flag* true进行主题类判断, 省略此参数则默认为false
      * @return 网页正文string
      */
     private List<TextLine> parse(String html) {
@@ -149,17 +147,17 @@ public class TextExtractor {
 
             String htmlLine = htmlLines.get(i);
 
-            if(htmlLine == null){
+            if (htmlLine == null) {
                 flag = true;
                 textLine.setLineHtml("");
                 textLine.setLineText("");
-            }else{
+            } else {
                 Element body = Jsoup.parse(htmlLine).body();
-                if(body == null){
+                if (body == null) {
                     flag = true;
                     textLine.setLineHtml("");
                     textLine.setLineText("");
-                }else{
+                } else {
                     String content = body.html().trim();
 
                     if ((StringUtils.isBlank(this.preProcess(content)) || content.startsWith("<") || (startPattern.matcher(content).matches() || endPattern.matcher(content).matches()))) {
@@ -170,7 +168,7 @@ public class TextExtractor {
                 }
             }
 
-            if(flag){
+            if (flag) {
                 textLine.setLineNumber(i);
                 textLine.setContent(false);
                 lines.add(textLine);
@@ -245,7 +243,8 @@ public class TextExtractor {
         private String lineHtml = null;
         private String lineText = null;
         // 判断是否为内容
-        private boolean isContent = false;;
+        private boolean isContent = false;
+        ;
 
         public int getLineNumber() {
             return lineNumber;

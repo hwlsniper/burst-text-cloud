@@ -27,19 +27,20 @@ public class UserLoginRecordServiceImpl implements UserLoginRecordService {
 
     /**
      * 保存用户登录记录
+     *
      * @param userId
      * @return
      */
     @Override
-    @Log(operationType="saveUserLoginRecord操作",operationName="保存用户登录记录")
-    public void saveUserLoginRecord(String userId) throws BizException{
-        try{
+    @Log(operationType = "saveUserLoginRecord操作", operationName = "保存用户登录记录")
+    public void saveUserLoginRecord(String userId) throws BizException {
+        try {
             TabUserLoginRecord record = new TabUserLoginRecord();
-            record.setId(idWork.nextId()+"");
+            record.setId(idWork.nextId() + "");
             record.setUserId(userId);
             loginRecordMapper.insertSelective(record);
-        }catch (Exception ex){
-            logger.error("异常方法:{}异常信息:{}", UserLoginRecordServiceImpl.class.getName()+".saveUserLoginRecord", ex.getMessage());
+        } catch (Exception ex) {
+            logger.error("异常方法:{}异常信息:{}", UserLoginRecordServiceImpl.class.getName() + ".saveUserLoginRecord", ex.getMessage());
             throw new BizException(400, "保存用户登录记录失败!");
         }
     }

@@ -16,6 +16,7 @@ public class ToolsServiceImpl implements ToolsService {
     /**
      * <p>Title: getUUID</p>
      * <p>Description: 获从header 中获取 uuid 设备ID</p>
+     *
      * @return
      */
     @Override
@@ -24,7 +25,7 @@ public class ToolsServiceImpl implements ToolsService {
                 .getRequest();
         // 读取session中的用户
         String uuid = request.getHeader("uuid");
-        if(StringUtils.isBlank(uuid)) {
+        if (StringUtils.isBlank(uuid)) {
             return null;
         }
         return uuid;

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.burst.text.mapper.TabUserWechatMapper">
+
+    <!-- 保存信息 -->
+    <insert id="saveUserWechat" parameterType="com.burst.text.entity.TabUserWechat">
+        insert into tab_user_wechat
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and id !=''">id,</if>
+            <if test="userId != null and userId !=''">user_id,</if>
+            <if test="openid != null and openid !=''">openid,</if>
+            <if test="unionid != null and unionid !=''">unionid,</if>
+            created_date,
+            updated_date,
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null and id !=''">#{id},</if>
+            <if test="userId != null and userId !=''">#{userId},</if>
+            <if test="openid != null and openid !=''">#{openid},</if>
+            <if test="unionid != null and unionid !=''">#{unionid},</if>
+            SYSDATE(),
+            SYSDATE(),
+        </trim>
+    </insert>
+</mapper>

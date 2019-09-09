@@ -1,308 +1,348 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.burst.text.mapper.TabUserInfoMapper">
-  <resultMap id="BaseResultMap" type="com.burst.text.entity.TabUserInfo">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="user_name" jdbcType="VARCHAR" property="userName" />
-    <result column="head_icon" jdbcType="VARCHAR" property="headIcon" />
-    <result column="bus_code" jdbcType="VARCHAR" property="busCode" />
-    <result column="position" jdbcType="VARCHAR" property="position" />
-    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
-    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
-    <result column="wxqr_code" jdbcType="VARCHAR" property="wxqrCode" />
-    <result column="user_type" jdbcType="VARCHAR" property="userType" />
-    <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
-    <result column="updated_date" jdbcType="TIMESTAMP" property="updatedDate" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.burst.text.entity.TabUserInfo">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="head_icon" jdbcType="VARCHAR" property="headIcon"/>
+        <result column="bus_code" jdbcType="VARCHAR" property="busCode"/>
+        <result column="position" jdbcType="VARCHAR" property="position"/>
+        <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName"/>
+        <result column="wxqr_code" jdbcType="VARCHAR" property="wxqrCode"/>
+        <result column="user_type" jdbcType="VARCHAR" property="userType"/>
+        <result column="created_date" jdbcType="TIMESTAMP" property="createdDate"/>
+        <result column="updated_date" jdbcType="TIMESTAMP" property="updatedDate"/>
+    </resultMap>
 
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
+        </where>
+    </sql>
 
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
+        </where>
+    </sql>
+
+    <sql id="Base_Column_List">
+        id, user_name, head_icon, bus_code, position, mobile, nick_name, wxqr_code, user_type,
+        created_date, updated_date
+    </sql>
+
+    <select id="selectByExample" parameterType="com.burst.text.entity.TabUserInfoExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
         </if>
-      </foreach>
-    </where>
-  </sql>
+        <include refid="Base_Column_List"/>
+        from tab_user_info
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
 
-  <sql id="Base_Column_List">
-    id, user_name, head_icon, bus_code, position, mobile, nick_name, wxqr_code, user_type,
-    created_date, updated_date
-  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tab_user_info
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
 
-  <select id="selectByExample" parameterType="com.burst.text.entity.TabUserInfoExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from tab_user_info
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from tab_user_info
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
 
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from tab_user_info
-    where id = #{id,jdbcType=VARCHAR}
-  </select>
+    <delete id="deleteByExample" parameterType="com.burst.text.entity.TabUserInfoExample">
+        delete from tab_user_info
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
 
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from tab_user_info
-    where id = #{id,jdbcType=VARCHAR}
-  </delete>
+    <insert id="insert" parameterType="com.burst.text.entity.TabUserInfo">
+        insert into tab_user_info (id, user_name, head_icon,
+        bus_code, position, mobile,
+        nick_name, wxqr_code,
+        created_date, updated_date
+        )
+        values (#{id,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{headIcon,jdbcType=VARCHAR},
+        #{busCode,jdbcType=VARCHAR}, #{position,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR},
+        #{nickName,jdbcType=VARCHAR}, #{wxqrCode,jdbcType=VARCHAR},
+        #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP}
+        )
+    </insert>
 
-  <delete id="deleteByExample" parameterType="com.burst.text.entity.TabUserInfoExample">
-    delete from tab_user_info
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
+    <insert id="insertSelective" parameterType="com.burst.text.entity.TabUserInfo">
+        insert into tab_user_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="headIcon != null">
+                head_icon,
+            </if>
+            <if test="busCode != null">
+                bus_code,
+            </if>
+            <if test="position != null">
+                position,
+            </if>
+            <if test="mobile != null">
+                mobile,
+            </if>
+            <if test="nickName != null">
+                nick_name,
+            </if>
+            <if test="wxqrCode != null">
+                wxqr_code,
+            </if>
+            created_date,
+            updated_date,
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="headIcon != null">
+                #{headIcon,jdbcType=VARCHAR},
+            </if>
+            <if test="busCode != null">
+                #{busCode,jdbcType=VARCHAR},
+            </if>
+            <if test="position != null">
+                #{position,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null">
+                #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="wxqrCode != null">
+                #{wxqrCode,jdbcType=VARCHAR},
+            </if>
+            SYSDATE(),
+            SYSDATE(),
+        </trim>
+    </insert>
 
-  <insert id="insert" parameterType="com.burst.text.entity.TabUserInfo">
-    insert into tab_user_info (id, user_name, head_icon, 
-      bus_code, position, mobile, 
-      nick_name, wxqr_code,
-      created_date, updated_date
-      )
-    values (#{id,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{headIcon,jdbcType=VARCHAR}, 
-      #{busCode,jdbcType=VARCHAR}, #{position,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
-      #{nickName,jdbcType=VARCHAR}, #{wxqrCode,jdbcType=VARCHAR},
-      #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP}
-      )
-  </insert>
+    <select id="countByExample" parameterType="com.burst.text.entity.TabUserInfoExample" resultType="java.lang.Long">
+        select count(*) from tab_user_info
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
 
-  <insert id="insertSelective" parameterType="com.burst.text.entity.TabUserInfo">
-    insert into tab_user_info
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="userName != null">
-        user_name,
-      </if>
-      <if test="headIcon != null">
-        head_icon,
-      </if>
-      <if test="busCode != null">
-        bus_code,
-      </if>
-      <if test="position != null">
-        position,
-      </if>
-      <if test="mobile != null">
-        mobile,
-      </if>
-      <if test="nickName != null">
-        nick_name,
-      </if>
-      <if test="wxqrCode != null">
-        wxqr_code,
-      </if>
-        created_date,
-        updated_date,
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="userName != null">
-        #{userName,jdbcType=VARCHAR},
-      </if>
-      <if test="headIcon != null">
-        #{headIcon,jdbcType=VARCHAR},
-      </if>
-      <if test="busCode != null">
-        #{busCode,jdbcType=VARCHAR},
-      </if>
-      <if test="position != null">
-        #{position,jdbcType=VARCHAR},
-      </if>
-      <if test="mobile != null">
-        #{mobile,jdbcType=VARCHAR},
-      </if>
-      <if test="nickName != null">
-        #{nickName,jdbcType=VARCHAR},
-      </if>
-      <if test="wxqrCode != null">
-        #{wxqrCode,jdbcType=VARCHAR},
-      </if>
-        SYSDATE(),
-        SYSDATE(),
-    </trim>
-  </insert>
+    <update id="updateByExampleSelective" parameterType="map">
+        update tab_user_info
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userName != null">
+                user_name = #{record.userName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.headIcon != null">
+                head_icon = #{record.headIcon,jdbcType=VARCHAR},
+            </if>
+            <if test="record.busCode != null">
+                bus_code = #{record.busCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.position != null">
+                position = #{record.position,jdbcType=VARCHAR},
+            </if>
+            <if test="record.mobile != null">
+                mobile = #{record.mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="record.nickName != null">
+                nick_name = #{record.nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.wxqrCode != null">
+                wxqr_code = #{record.wxqrCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.createdDate != null">
+                created_date = #{record.createdDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.updatedDate != null">
+                updated_date = #{record.updatedDate,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
 
-  <select id="countByExample" parameterType="com.burst.text.entity.TabUserInfoExample" resultType="java.lang.Long">
-    select count(*) from tab_user_info
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-
-  <update id="updateByExampleSelective" parameterType="map">
-    update tab_user_info
-    <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=VARCHAR},
-      </if>
-      <if test="record.userName != null">
+    <update id="updateByExample" parameterType="map">
+        update tab_user_info
+        set id = #{record.id,jdbcType=VARCHAR},
         user_name = #{record.userName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.headIcon != null">
         head_icon = #{record.headIcon,jdbcType=VARCHAR},
-      </if>
-      <if test="record.busCode != null">
         bus_code = #{record.busCode,jdbcType=VARCHAR},
-      </if>
-      <if test="record.position != null">
         position = #{record.position,jdbcType=VARCHAR},
-      </if>
-      <if test="record.mobile != null">
         mobile = #{record.mobile,jdbcType=VARCHAR},
-      </if>
-      <if test="record.nickName != null">
         nick_name = #{record.nickName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.wxqrCode != null">
         wxqr_code = #{record.wxqrCode,jdbcType=VARCHAR},
-      </if>
-      <if test="record.createdDate != null">
         created_date = #{record.createdDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.updatedDate != null">
-        updated_date = #{record.updatedDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
+        updated_date = #{record.updatedDate,jdbcType=TIMESTAMP}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
 
-  <update id="updateByExample" parameterType="map">
-    update tab_user_info
-    set id = #{record.id,jdbcType=VARCHAR},
-      user_name = #{record.userName,jdbcType=VARCHAR},
-      head_icon = #{record.headIcon,jdbcType=VARCHAR},
-      bus_code = #{record.busCode,jdbcType=VARCHAR},
-      position = #{record.position,jdbcType=VARCHAR},
-      mobile = #{record.mobile,jdbcType=VARCHAR},
-      nick_name = #{record.nickName,jdbcType=VARCHAR},
-      wxqr_code = #{record.wxqrCode,jdbcType=VARCHAR},
-      created_date = #{record.createdDate,jdbcType=TIMESTAMP},
-      updated_date = #{record.updatedDate,jdbcType=TIMESTAMP}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.burst.text.entity.TabUserInfo">
+        update tab_user_info
+        <set>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="headIcon != null">
+                head_icon = #{headIcon,jdbcType=VARCHAR},
+            </if>
+            <if test="busCode != null">
+                bus_code = #{busCode,jdbcType=VARCHAR},
+            </if>
+            <if test="position != null">
+                position = #{position,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                mobile = #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null">
+                nick_name = #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="wxqrCode != null">
+                wxqr_code = #{wxqrCode,jdbcType=VARCHAR},
+            </if>
 
-  <update id="updateByPrimaryKeySelective" parameterType="com.burst.text.entity.TabUserInfo">
-    update tab_user_info
-    <set>
-      <if test="userName != null">
-        user_name = #{userName,jdbcType=VARCHAR},
-      </if>
-      <if test="headIcon != null">
+            <if test="createdDate != null">
+                created_date = #{createdDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedDate != null">
+                updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.burst.text.entity.TabUserInfo">
+        update tab_user_info
+        set user_name = #{userName,jdbcType=VARCHAR},
         head_icon = #{headIcon,jdbcType=VARCHAR},
-      </if>
-      <if test="busCode != null">
         bus_code = #{busCode,jdbcType=VARCHAR},
-      </if>
-      <if test="position != null">
         position = #{position,jdbcType=VARCHAR},
-      </if>
-      <if test="mobile != null">
         mobile = #{mobile,jdbcType=VARCHAR},
-      </if>
-      <if test="nickName != null">
         nick_name = #{nickName,jdbcType=VARCHAR},
-      </if>
-      <if test="wxqrCode != null">
         wxqr_code = #{wxqrCode,jdbcType=VARCHAR},
-      </if>
-
-      <if test="createdDate != null">
         created_date = #{createdDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatedDate != null">
-        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
 
-  <update id="updateByPrimaryKey" parameterType="com.burst.text.entity.TabUserInfo">
-    update tab_user_info
-    set user_name = #{userName,jdbcType=VARCHAR},
-      head_icon = #{headIcon,jdbcType=VARCHAR},
-      bus_code = #{busCode,jdbcType=VARCHAR},
-      position = #{position,jdbcType=VARCHAR},
-      mobile = #{mobile,jdbcType=VARCHAR},
-      nick_name = #{nickName,jdbcType=VARCHAR},
-      wxqr_code = #{wxqrCode,jdbcType=VARCHAR},
-      created_date = #{createdDate,jdbcType=TIMESTAMP},
-      updated_date = #{updatedDate,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
+    <!-- 查询平台信息 -->
+    <select id="queryPlatformInfo" resultMap="BaseResultMap">
+        select
+        user_name,
+        head_icon,
+        mobile,
+        nick_name,
+        `position`,
+        wxqr_code
+        from tab_user_info WHERE user_type = 'ut0001'
+    </select>
 
-  <!-- 查询平台二维码 -->
-  <select id="queryPlatformQrCode" resultType="string">
-    SELECT wxqr_code wxqrCode FROM
-    tab_user_info
-    WHERE user_type = 'ut0001'
-  </select>
+    <!-- 查询平台二维码 -->
+    <select id="queryPlatformQrCode" resultType="string">
+        SELECT wxqr_code wxqrCode FROM
+        tab_user_info
+        WHERE user_type = 'ut0001'
+    </select>
+
+    <!-- 根据 openid \ unionid 查询用户信息 -->
+    <select id="queryUserInfoByWechat" parameterType="map" resultType="com.burst.text.dto.UserTokenBean">
+        SELECT
+        ui.id userId,
+        ui.nick_name nickName,
+        ui.mobile,
+        ui.head_icon headIcon,
+        uw.openid,
+        uw.unionid,
+        ut.user_token userToken
+        FROM
+        tab_user_info ui
+        LEFT JOIN tab_user_wechat uw ON ui.id = uw.user_id
+        LEFT JOIN tab_user_token ut ON ui.id = ut.user_id
+        WHERE 1 = 1
+        <if test="mobile != null and mobile !=''">
+            AND ui.mobile = #{mobile}
+        </if>
+        <if test="openid != null and openid !=''">
+            AND uw.openid = #{openid}
+        </if>
+        <if test="unionid != null and unionid !=''">
+            AND uw.unionid = #{unionid}
+        </if>
+    </select>
 </mapper>

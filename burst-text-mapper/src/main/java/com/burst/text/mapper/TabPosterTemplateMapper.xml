@@ -2,13 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.burst.text.mapper.TabPosterTemplateMapper">
 
-    <!-- 查询海报分类 -->
-    <select id="queryPosterType" resultType="com.burst.text.dto.PosterTypeBean">
+    <!-- 查询海报分类 com.burst.text.dto.PosterTypeBean -->
+    <select id="queryPosterType" resultType="com.burst.text.entity.TabSysDictionary">
         select
-            sd.code posterType,
-            sd.name posterTypeName
-        tab_sys_dictionary sd
-        inner join tab_poster_template pt on sd.code = pt.poster_type and pd.is_enable = 1
+        sd.`code`,
+        sd.`name`,
+        sd.img
+        from tab_sys_dictionary sd
+        inner join tab_poster_template pt on sd.code = pt.poster_type and pt.is_enable = 1
         where sd.data_type = 'poster_type'
         group by sd.code
         order by sd.seq
@@ -17,8 +18,8 @@
     <!-- 查询 海报列表数据 -->
     <select id="queryPosterTempList" parameterType="map" resultType="com.burst.text.entity.TabPosterTemplate">
         select
-            id,
-            min_poster minPoster
+        id,
+        min_poster minPoster
         from
         tab_poster_template
         where is_enable = 1
@@ -30,11 +31,36 @@
     <!-- 查询海报详情数据 -->
     <select id="queryPosterInfo" parameterType="map" resultType="map">
         select
-            max_poster maxPoster,
-            use_scope useScope
+        max_poster maxPoster,
+        use_scope useScope
         from
         tab_poster_template
         where is_enable = 1
         and id = #{posterId}
     </select>
+
+    <!-- 保存海报数据 -->
+    <insert id="savePoster" parameterType="com.burst.text.entity.TabPosterTemplate">
+        insert into tab_poster_template
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and id !=''">id,</if>
+            <if test="posterTitle != null and posterTitle !=''">poster_title,</if>
+            <if test="minPoster != null and minPoster !=''">min_poster,</if>
+            <if test="maxPoster != null and maxPoster !=''">max_poster,</if>
+            <if test="posterType != null and posterType !=''">poster_type,</if>
+            <if test="useScope != null and useScope !=''">use_scope</if>
+            created_date,
+            updated_date
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null and id !=''">#{id},</if>
+            <if test="posterTitle != null and posterTitle !=''">#{posterTitle},</if>
+            <if test="minPoster != null and minPoster !=''">#{minPoster},</if>
+            <if test="maxPoster != null and maxPoster !=''">#{maxPoster},</if>
+            <if test="posterType != null and posterType !=''">#{posterType},</if>
+            <if test="useScope != null and useScope !=''">#{useScope}</if>
+            SYSDATE(),
+            SYSDATE()
+        </trim>
+    </insert>
 </mapper>

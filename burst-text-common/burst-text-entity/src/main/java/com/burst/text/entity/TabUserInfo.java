@@ -1,5 +1,7 @@
 package com.burst.text.entity;
 
+import com.burst.text.util.JsonURLDateSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -13,7 +15,7 @@ public class TabUserInfo implements Serializable {
     private String id;
 
     private String userName;
-
+    @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL, using = JsonURLDateSerializer.class)
     private String headIcon;
 
     private String busCode;
@@ -23,7 +25,7 @@ public class TabUserInfo implements Serializable {
     private String mobile;
 
     private String nickName;
-
+    @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL, using = JsonURLDateSerializer.class)
     private String wxqrCode;
 
     private String userType;

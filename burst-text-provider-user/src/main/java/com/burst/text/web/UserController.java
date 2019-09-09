@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 用户 controller
+ *
  * @author Administrator
  */
 @RestController
@@ -23,24 +24,12 @@ public class UserController {
     private UserService userService;
 
     /**
-     * 用户微信授权
-     * @param request
-     * @param response
-     * @return
-     */
-    @PostMapping("/user/authorizeUser")
-    public Result authorizeUser(HttpServletRequest request, HttpServletResponse response){
-        Result result = Result.responseSuccess();
-        result = userService.authorizeUser(request, response);
-        return result;
-    }
-
-    /**
      * 获取用户信息
+     *
      * @return
      */
     @GetMapping("/user/queryUser")
-    public Result queryUser(){
+    public Result queryUser() {
         Result result = Result.responseSuccess();
         result = userService.queryUser();
         return result;
@@ -48,14 +37,15 @@ public class UserController {
 
     /**
      * 修改用户信息
+     *
      * @param request
      * @param response
      * @return
      */
     @PostMapping("/user/modifyUser")
-    public Result modifyUserInfo(HttpServletRequest request, HttpServletResponse response, TabUserInfo userInfo){
+    public Result modifyUserInfo(HttpServletRequest request, HttpServletResponse response, TabUserInfo userInfo) {
         Result result = Result.responseSuccess();
-        if(null != userInfo && StringUtils.isNotBlank(userInfo.getNickName())){
+        if (null != userInfo && StringUtils.isNotBlank(userInfo.getNickName())) {
             result.setCode(400);
             result.setMsg("请填写昵称!");
             return result;

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
+
 @Mapper
 public interface TabUserTokenMapper {
     long countByExample(TabUserTokenExample example);
@@ -34,4 +35,6 @@ public interface TabUserTokenMapper {
     TabUserToken queryUserToken(Map<String, Object> param);
 
     int saveSelective(TabUserToken record);
+
+    String queryUserIdForToken(@Param("userToken") String userToken);
 }

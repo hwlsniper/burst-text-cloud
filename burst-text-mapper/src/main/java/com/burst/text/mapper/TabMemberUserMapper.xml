@@ -3,7 +3,7 @@
 <mapper namespace="com.burst.text.mapper.TabMemberUserMapper">
 
     <select id="queryMemberUser" parameterType="map" resultType="com.burst.text.entity.TabMemberUser">
-      <![CDATA[
+        <![CDATA[
       SELECT
           mu.id,
           mu.user_id userId,

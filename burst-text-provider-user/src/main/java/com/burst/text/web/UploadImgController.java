@@ -22,15 +22,15 @@ public class UploadImgController {
 
     /**
      * 上传图片(头像)
-     * flag: 1-头像  2-二维码
+     *
      * @param request
      * @param img
-     * @param flag
+     * @param flag    1-头像  2-二维码
      * @return
      */
     @PostMapping("/user/uploadImg/{flag}")
     public Result uploadImg(HttpServletRequest request, MultipartFile img,
-                            @PathVariable("flag") String flag){
+                            @PathVariable("flag") Integer flag) {
         Result result = Result.responseSuccess();
         if (img.isEmpty() || StringUtils.isBlank(img.getOriginalFilename())) {
             result.setCode(400);
@@ -45,19 +45,23 @@ public class UploadImgController {
             return result;
         }
 
-        result = uploadService.uploadImg(img);
+        result = uploadService.uploadImg(img, flag);
         return result;
     }
 
     /**
      * 遍历目录中的文件,并将文件上传
-     * @param filePath  目录
+     *
+     * @param filePath    目录
+     * @param posertType  海报类型、课件类型
+     * @param type        图片名后缀
+     * @param cousreClass 课件类型(PDF\音频\视频)
      * @return
      */
     @PostMapping("/user/uploadImgs")
-    public Result uploadImgs(String filePath, String posertType){
+    public Result uploadImgs(String filePath, String posertType, String type, String cousreClass) {
         Result result = Result.responseSuccess();
-
+        uploadService.uploadImgs(filePath, posertType, type, cousreClass);
         return result;
     }
 }

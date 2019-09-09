@@ -17,15 +17,15 @@ public class WebFileUtils {
     private static final Logger logger = LoggerFactory.getLogger(WebFileUtils.class);
 
     /**
+     * @param imgStr base64编码字符串
+     * @param path   图片路径-具体到文件
+     * @return
      * @Description: 将base64编码字符串转换为图片
      * @Author:
      * @CreateTime:
-     * @param imgStr base64编码字符串
-     * @param path 图片路径-具体到文件
-     * @return
      */
     public static boolean generateImage(String imgStr, String path) {
-        if (imgStr == null){
+        if (imgStr == null) {
             return false;
         }
 
@@ -49,7 +49,7 @@ public class WebFileUtils {
         }
     }
 
-    public static void createImgFileByUrl(String url, String fileName, String suffix){
+    public static void createImgFileByUrl(String url, String fileName, String suffix) {
         BufferedOutputStream bos = null;
         FileOutputStream fos = null;
         File file = null;
@@ -58,7 +58,7 @@ public class WebFileUtils {
             byte[] bfile = getImageFromNetByUrl(url);
             File dir = new File(filePath);
             //判断文件目录是否存在
-            if(!dir.exists()&&dir.isDirectory()){
+            if (!dir.exists() && dir.isDirectory()) {
                 dir.mkdirs();
             }
             file = new File(filePath + File.separator + fileName);
@@ -88,9 +88,9 @@ public class WebFileUtils {
 
     /**
      * 根据url拿取file
+     *
      * @param url
-     * @param suffix
-     *        文件后缀名
+     * @param suffix 文件后缀名
      */
     public static File createFileByUrl(String url, String suffix) {
         byte[] byteFile = getImageFromNetByUrl(url);
@@ -105,6 +105,7 @@ public class WebFileUtils {
 
     /**
      * 根据地址获得数据的字节流
+     *
      * @param strUrl 网络连接地址
      * @return
      */
@@ -126,8 +127,7 @@ public class WebFileUtils {
     /**
      * 从输入流中获取数据
      *
-     * @param inStream
-     *            输入流
+     * @param inStream 输入流
      * @return
      * @throws Exception
      */
@@ -148,7 +148,7 @@ public class WebFileUtils {
         File file = null;
         try {
             file = File.createTempFile("pattern", "." + suffix);
-            System.out.println("临时文件位置："+file.getCanonicalPath());
+            System.out.println("临时文件位置：" + file.getCanonicalPath());
             FileOutputStream fstream = new FileOutputStream(file);
             stream = new BufferedOutputStream(fstream);
             stream.write(b);

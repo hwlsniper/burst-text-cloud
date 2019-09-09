@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
+
 @Mapper
 public interface TabSysDictionaryMapper {
     long countByExample(TabSysDictionaryExample example);

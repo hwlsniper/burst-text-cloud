@@ -7,6 +7,7 @@ import java.util.Date;
 
 /**
  * 用户和微信用户 openid 和 unionid 关联
+ *
  * @author Administrator
  */
 @Data

@@ -1,11 +1,14 @@
 package com.burst.text.mapper;
 
+import com.burst.text.dto.UserTokenBean;
 import com.burst.text.entity.TabUserInfo;
 import com.burst.text.entity.TabUserInfoExample;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
+
 @Mapper
 public interface TabUserInfoMapper {
     long countByExample(TabUserInfoExample example);
@@ -30,5 +33,9 @@ public interface TabUserInfoMapper {
 
     int updateByPrimaryKey(TabUserInfo record);
 
+    TabUserInfo queryPlatformInfo();
+
     String queryPlatformQrCode();
+
+    UserTokenBean queryUserInfoByWechat(Map<String, Object> param);
 }
