@@ -1,416 +1,423 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.burst.text.mapper.TabBurstTextMapper">
-  <resultMap id="BaseResultMap" type="com.burst.text.entity.TabBurstText">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="title" jdbcType="VARCHAR" property="title" />
-    <result column="user_id" jdbcType="VARCHAR" property="userId" />
-    <result column="short_title" jdbcType="VARCHAR" property="shortTitle" />
-    <result column="title_img" jdbcType="VARCHAR" property="titleImg" />
-    <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="burst_source" jdbcType="VARCHAR" property="burstSource" />
-    <result column="burst_type" jdbcType="VARCHAR" property="burstType" />
-    <result column="burst_ascripte" jdbcType="VARCHAR" property="burstAscripte" />
-    <result column="browse_num" jdbcType="INTEGER" property="browseNum" />
-    <result column="share_num" jdbcType="INTEGER" property="shareNum" />
-    <result column="is_top" jdbcType="INTEGER" property="isTop" />
-    <result column="is_enable" jdbcType="INTEGER" property="isEnable" />
-    <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
-    <result column="updated_date" jdbcType="TIMESTAMP" property="updatedDate" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+    <resultMap id="BaseResultMap" type="com.burst.text.entity.TabBurstText">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="short_title" jdbcType="VARCHAR" property="shortTitle"/>
+        <result column="title_img" jdbcType="VARCHAR" property="titleImg"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="burst_source" jdbcType="VARCHAR" property="burstSource"/>
+        <result column="burst_type" jdbcType="VARCHAR" property="burstType"/>
+        <result column="burst_ascripte" jdbcType="VARCHAR" property="burstAscripte"/>
+        <result column="browse_num" jdbcType="INTEGER" property="browseNum"/>
+        <result column="share_num" jdbcType="INTEGER" property="shareNum"/>
+        <result column="is_top" jdbcType="INTEGER" property="isTop"/>
+        <result column="is_enable" jdbcType="INTEGER" property="isEnable"/>
+        <result column="created_date" jdbcType="TIMESTAMP" property="createdDate"/>
+        <result column="updated_date" jdbcType="TIMESTAMP" property="updatedDate"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        id, title, user_id, short_title, title_img, content, burst_source, burst_type, burst_ascripte,
+        browse_num, share_num, is_top, is_enable, created_date, updated_date
+    </sql>
+
+    <select id="selectByExample" parameterType="com.burst.text.entity.TabBurstTextExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
         </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    id, title, user_id, short_title, title_img, content, burst_source, burst_type, burst_ascripte, 
-    browse_num, share_num, is_top, is_enable, created_date, updated_date
-  </sql>
+        <include refid="Base_Column_List"/>
+        from tab_burst_text
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
 
-  <select id="selectByExample" parameterType="com.burst.text.entity.TabBurstTextExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from tab_burst_text
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tab_burst_text
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
 
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from tab_burst_text
-    where id = #{id,jdbcType=VARCHAR}
-  </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from tab_burst_text
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
 
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from tab_burst_text
-    where id = #{id,jdbcType=VARCHAR}
-  </delete>
+    <delete id="deleteByExample" parameterType="com.burst.text.entity.TabBurstTextExample">
+        delete from tab_burst_text
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
 
-  <delete id="deleteByExample" parameterType="com.burst.text.entity.TabBurstTextExample">
-    delete from tab_burst_text
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
+    <insert id="insert" parameterType="com.burst.text.entity.TabBurstText">
+        insert into tab_burst_text (id, title, user_id,
+        short_title, title_img, content,
+        burst_source, burst_type, burst_ascripte,
+        browse_num, share_num, is_top,
+        is_enable, created_date, updated_date
+        )
+        values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR},
+        #{shortTitle,jdbcType=VARCHAR}, #{titleImg,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR},
+        #{burstSource,jdbcType=VARCHAR}, #{burstType,jdbcType=VARCHAR}, #{burstAscripte,jdbcType=VARCHAR},
+        #{browseNum,jdbcType=INTEGER}, #{shareNum,jdbcType=INTEGER}, #{isTop,jdbcType=INTEGER},
+        #{isEnable,jdbcType=INTEGER}, #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP}
+        )
+    </insert>
 
-  <insert id="insert" parameterType="com.burst.text.entity.TabBurstText">
-    insert into tab_burst_text (id, title, user_id, 
-      short_title, title_img, content, 
-      burst_source, burst_type, burst_ascripte, 
-      browse_num, share_num, is_top, 
-      is_enable, created_date, updated_date
-      )
-    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
-      #{shortTitle,jdbcType=VARCHAR}, #{titleImg,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
-      #{burstSource,jdbcType=VARCHAR}, #{burstType,jdbcType=VARCHAR}, #{burstAscripte,jdbcType=VARCHAR}, 
-      #{browseNum,jdbcType=INTEGER}, #{shareNum,jdbcType=INTEGER}, #{isTop,jdbcType=INTEGER}, 
-      #{isEnable,jdbcType=INTEGER}, #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP}
-      )
-  </insert>
+    <insert id="insertSelective" parameterType="com.burst.text.entity.TabBurstText">
+        insert into tab_burst_text
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="title != null">
+                title,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="shortTitle != null">
+                short_title,
+            </if>
+            <if test="titleImg != null">
+                title_img,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+            <if test="burstSource != null">
+                burst_source,
+            </if>
+            <if test="burstType != null">
+                burst_type,
+            </if>
+            <if test="burstAscripte != null">
+                burst_ascripte,
+            </if>
+            <if test="browseNum != null">
+                browse_num,
+            </if>
+            <if test="shareNum != null">
+                share_num,
+            </if>
+            <if test="isTop != null">
+                is_top,
+            </if>
+            <if test="isEnable != null">
+                is_enable,
+            </if>
+            <if test="createdDate != null">
+                created_date,
+            </if>
+            <if test="updatedDate != null">
+                updated_date,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="shortTitle != null">
+                #{shortTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="titleImg != null">
+                #{titleImg,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="burstSource != null">
+                #{burstSource,jdbcType=VARCHAR},
+            </if>
+            <if test="burstType != null">
+                #{burstType,jdbcType=VARCHAR},
+            </if>
+            <if test="burstAscripte != null">
+                #{burstAscripte,jdbcType=VARCHAR},
+            </if>
+            <if test="browseNum != null">
+                #{browseNum,jdbcType=INTEGER},
+            </if>
+            <if test="shareNum != null">
+                #{shareNum,jdbcType=INTEGER},
+            </if>
+            <if test="isTop != null">
+                #{isTop,jdbcType=INTEGER},
+            </if>
+            <if test="isEnable != null">
+                #{isEnable,jdbcType=INTEGER},
+            </if>
+            <if test="createdDate != null">
+                #{createdDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedDate != null">
+                #{updatedDate,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
 
-  <insert id="insertSelective" parameterType="com.burst.text.entity.TabBurstText">
-    insert into tab_burst_text
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="title != null">
-        title,
-      </if>
-      <if test="userId != null">
-        user_id,
-      </if>
-      <if test="shortTitle != null">
-        short_title,
-      </if>
-      <if test="titleImg != null">
-        title_img,
-      </if>
-      <if test="content != null">
-        content,
-      </if>
-      <if test="burstSource != null">
-        burst_source,
-      </if>
-      <if test="burstType != null">
-        burst_type,
-      </if>
-      <if test="burstAscripte != null">
-        burst_ascripte,
-      </if>
-      <if test="browseNum != null">
-        browse_num,
-      </if>
-      <if test="shareNum != null">
-        share_num,
-      </if>
-      <if test="isTop != null">
-        is_top,
-      </if>
-      <if test="isEnable != null">
-        is_enable,
-      </if>
-      <if test="createdDate != null">
-        created_date,
-      </if>
-      <if test="updatedDate != null">
-        updated_date,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="title != null">
-        #{title,jdbcType=VARCHAR},
-      </if>
-      <if test="userId != null">
-        #{userId,jdbcType=VARCHAR},
-      </if>
-      <if test="shortTitle != null">
-        #{shortTitle,jdbcType=VARCHAR},
-      </if>
-      <if test="titleImg != null">
-        #{titleImg,jdbcType=VARCHAR},
-      </if>
-      <if test="content != null">
-        #{content,jdbcType=VARCHAR},
-      </if>
-      <if test="burstSource != null">
-        #{burstSource,jdbcType=VARCHAR},
-      </if>
-      <if test="burstType != null">
-        #{burstType,jdbcType=VARCHAR},
-      </if>
-      <if test="burstAscripte != null">
-        #{burstAscripte,jdbcType=VARCHAR},
-      </if>
-      <if test="browseNum != null">
-        #{browseNum,jdbcType=INTEGER},
-      </if>
-      <if test="shareNum != null">
-        #{shareNum,jdbcType=INTEGER},
-      </if>
-      <if test="isTop != null">
-        #{isTop,jdbcType=INTEGER},
-      </if>
-      <if test="isEnable != null">
-        #{isEnable,jdbcType=INTEGER},
-      </if>
-      <if test="createdDate != null">
-        #{createdDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatedDate != null">
-        #{updatedDate,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
+    <select id="countByExample" parameterType="com.burst.text.entity.TabBurstTextExample" resultType="java.lang.Long">
+        select count(*) from tab_burst_text
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
 
-  <select id="countByExample" parameterType="com.burst.text.entity.TabBurstTextExample" resultType="java.lang.Long">
-    select count(*) from tab_burst_text
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update tab_burst_text
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=VARCHAR},
+            </if>
+            <if test="record.title != null">
+                title = #{record.title,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userId != null">
+                user_id = #{record.userId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.shortTitle != null">
+                short_title = #{record.shortTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="record.titleImg != null">
+                title_img = #{record.titleImg,jdbcType=VARCHAR},
+            </if>
+            <if test="record.content != null">
+                content = #{record.content,jdbcType=VARCHAR},
+            </if>
+            <if test="record.burstSource != null">
+                burst_source = #{record.burstSource,jdbcType=VARCHAR},
+            </if>
+            <if test="record.burstType != null">
+                burst_type = #{record.burstType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.burstAscripte != null">
+                burst_ascripte = #{record.burstAscripte,jdbcType=VARCHAR},
+            </if>
+            <if test="record.browseNum != null">
+                browse_num = #{record.browseNum,jdbcType=INTEGER},
+            </if>
+            <if test="record.shareNum != null">
+                share_num = #{record.shareNum,jdbcType=INTEGER},
+            </if>
+            <if test="record.isTop != null">
+                is_top = #{record.isTop,jdbcType=INTEGER},
+            </if>
+            <if test="record.isEnable != null">
+                is_enable = #{record.isEnable,jdbcType=INTEGER},
+            </if>
+            <if test="record.createdDate != null">
+                created_date = #{record.createdDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.updatedDate != null">
+                updated_date = #{record.updatedDate,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
 
-  <update id="updateByExampleSelective" parameterType="map">
-    update tab_burst_text
-    <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=VARCHAR},
-      </if>
-      <if test="record.title != null">
+    <update id="updateByExample" parameterType="map">
+        update tab_burst_text
+        set id = #{record.id,jdbcType=VARCHAR},
         title = #{record.title,jdbcType=VARCHAR},
-      </if>
-      <if test="record.userId != null">
         user_id = #{record.userId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.shortTitle != null">
         short_title = #{record.shortTitle,jdbcType=VARCHAR},
-      </if>
-      <if test="record.titleImg != null">
         title_img = #{record.titleImg,jdbcType=VARCHAR},
-      </if>
-      <if test="record.content != null">
         content = #{record.content,jdbcType=VARCHAR},
-      </if>
-      <if test="record.burstSource != null">
         burst_source = #{record.burstSource,jdbcType=VARCHAR},
-      </if>
-      <if test="record.burstType != null">
         burst_type = #{record.burstType,jdbcType=VARCHAR},
-      </if>
-      <if test="record.burstAscripte != null">
         burst_ascripte = #{record.burstAscripte,jdbcType=VARCHAR},
-      </if>
-      <if test="record.browseNum != null">
         browse_num = #{record.browseNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.shareNum != null">
         share_num = #{record.shareNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.isTop != null">
         is_top = #{record.isTop,jdbcType=INTEGER},
-      </if>
-      <if test="record.isEnable != null">
         is_enable = #{record.isEnable,jdbcType=INTEGER},
-      </if>
-      <if test="record.createdDate != null">
         created_date = #{record.createdDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.updatedDate != null">
-        updated_date = #{record.updatedDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
+        updated_date = #{record.updatedDate,jdbcType=TIMESTAMP}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
 
-  <update id="updateByExample" parameterType="map">
-    update tab_burst_text
-    set id = #{record.id,jdbcType=VARCHAR},
-      title = #{record.title,jdbcType=VARCHAR},
-      user_id = #{record.userId,jdbcType=VARCHAR},
-      short_title = #{record.shortTitle,jdbcType=VARCHAR},
-      title_img = #{record.titleImg,jdbcType=VARCHAR},
-      content = #{record.content,jdbcType=VARCHAR},
-      burst_source = #{record.burstSource,jdbcType=VARCHAR},
-      burst_type = #{record.burstType,jdbcType=VARCHAR},
-      burst_ascripte = #{record.burstAscripte,jdbcType=VARCHAR},
-      browse_num = #{record.browseNum,jdbcType=INTEGER},
-      share_num = #{record.shareNum,jdbcType=INTEGER},
-      is_top = #{record.isTop,jdbcType=INTEGER},
-      is_enable = #{record.isEnable,jdbcType=INTEGER},
-      created_date = #{record.createdDate,jdbcType=TIMESTAMP},
-      updated_date = #{record.updatedDate,jdbcType=TIMESTAMP}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.burst.text.entity.TabBurstText">
+        update tab_burst_text
+        <set>
+            <if test="title != null">
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="shortTitle != null">
+                short_title = #{shortTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="titleImg != null">
+                title_img = #{titleImg,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                content = #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="burstSource != null">
+                burst_source = #{burstSource,jdbcType=VARCHAR},
+            </if>
+            <if test="burstType != null">
+                burst_type = #{burstType,jdbcType=VARCHAR},
+            </if>
+            <if test="burstAscripte != null">
+                burst_ascripte = #{burstAscripte,jdbcType=VARCHAR},
+            </if>
+            <if test="browseNum != null">
+                browse_num = #{browseNum,jdbcType=INTEGER},
+            </if>
+            <if test="shareNum != null">
+                share_num = #{shareNum,jdbcType=INTEGER},
+            </if>
+            <if test="isTop != null">
+                is_top = #{isTop,jdbcType=INTEGER},
+            </if>
+            <if test="isEnable != null">
+                is_enable = #{isEnable,jdbcType=INTEGER},
+            </if>
+            <if test="createdDate != null">
+                created_date = #{createdDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedDate != null">
+                updated_date = #{updatedDate,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
 
-  <update id="updateByPrimaryKeySelective" parameterType="com.burst.text.entity.TabBurstText">
-    update tab_burst_text
-    <set>
-      <if test="title != null">
-        title = #{title,jdbcType=VARCHAR},
-      </if>
-      <if test="userId != null">
+    <update id="updateByPrimaryKey" parameterType="com.burst.text.entity.TabBurstText">
+        update tab_burst_text
+        set title = #{title,jdbcType=VARCHAR},
         user_id = #{userId,jdbcType=VARCHAR},
-      </if>
-      <if test="shortTitle != null">
         short_title = #{shortTitle,jdbcType=VARCHAR},
-      </if>
-      <if test="titleImg != null">
         title_img = #{titleImg,jdbcType=VARCHAR},
-      </if>
-      <if test="content != null">
         content = #{content,jdbcType=VARCHAR},
-      </if>
-      <if test="burstSource != null">
         burst_source = #{burstSource,jdbcType=VARCHAR},
-      </if>
-      <if test="burstType != null">
         burst_type = #{burstType,jdbcType=VARCHAR},
-      </if>
-      <if test="burstAscripte != null">
         burst_ascripte = #{burstAscripte,jdbcType=VARCHAR},
-      </if>
-      <if test="browseNum != null">
         browse_num = #{browseNum,jdbcType=INTEGER},
-      </if>
-      <if test="shareNum != null">
         share_num = #{shareNum,jdbcType=INTEGER},
-      </if>
-      <if test="isTop != null">
         is_top = #{isTop,jdbcType=INTEGER},
-      </if>
-      <if test="isEnable != null">
         is_enable = #{isEnable,jdbcType=INTEGER},
-      </if>
-      <if test="createdDate != null">
         created_date = #{createdDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatedDate != null">
-        updated_date = #{updatedDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
+        updated_date = #{updatedDate,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
 
-  <update id="updateByPrimaryKey" parameterType="com.burst.text.entity.TabBurstText">
-    update tab_burst_text
-    set title = #{title,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=VARCHAR},
-      short_title = #{shortTitle,jdbcType=VARCHAR},
-      title_img = #{titleImg,jdbcType=VARCHAR},
-      content = #{content,jdbcType=VARCHAR},
-      burst_source = #{burstSource,jdbcType=VARCHAR},
-      burst_type = #{burstType,jdbcType=VARCHAR},
-      burst_ascripte = #{burstAscripte,jdbcType=VARCHAR},
-      browse_num = #{browseNum,jdbcType=INTEGER},
-      share_num = #{shareNum,jdbcType=INTEGER},
-      is_top = #{isTop,jdbcType=INTEGER},
-      is_enable = #{isEnable,jdbcType=INTEGER},
-      created_date = #{createdDate,jdbcType=TIMESTAMP},
-      updated_date = #{updatedDate,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-
-  <select id="queryBurstText" parameterType="map" resultType="com.burst.text.entity.TabBurstText">
-    SELECT
+    <select id="queryBurstTextList" parameterType="map" resultType="com.burst.text.entity.TabBurstText">
+        SELECT
         id,
         title,
         short_title shortTitle,
         title_img titleImg,
         browse_num browseNum,
         share_num shareNum
-    FROM
+        FROM
         tab_burst_text tb
-    WHERE
+        WHERE
         tb.is_enable = 1
-    AND tb.burst_ascripte = '1001'
-    <if test=" null != burstType and burstType != ''">
-      AND burst_type = #{burstType}
-    </if>
-    ORDER BY
+        AND tb.burst_ascripte = '1001'
+        <if test=" null != burstType and burstType != ''">
+            AND burst_type = #{burstType}
+        </if>
+        ORDER BY
         tb.is_top,
         tb.created_date DESC
-  </select>
+    </select>
 
-  <select id="querySysDictionary" parameterType="map" resultType="com.burst.text.entity.TabSysDictionary">
-    SELECT
+    <select id="queryBurstTextType" parameterType="map" resultType="com.burst.text.entity.TabSysDictionary">
+        SELECT
         sd.`code`,
         sd.`name`,
         sd.img
-    FROM
+        FROM
         tab_sys_dictionary sd
-    INNER JOIN tab_burst_text tb ON sd.`code` = tb.burst_type
-    WHERE
+        INNER JOIN tab_burst_text tb ON sd.`code` = tb.burst_type
+        WHERE
         sd.is_enable = 1
-    ORDER BY
+        ORDER BY
         sd.seq
-  </select>
+    </select>
+
+    <!-- 查询详情 -->
+    <select id="queryBurstText" parameterType="string" resultMap="BaseResultMap">
+        select tb.id, tb.title, tb.content from tab_burst_text tb where tb.id = #{burstId}
+    </select>
 </mapper>

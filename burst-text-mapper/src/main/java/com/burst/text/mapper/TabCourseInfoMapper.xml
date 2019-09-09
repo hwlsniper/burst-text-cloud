@@ -2,13 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.burst.text.mapper.TabCourseInfoMapper">
 
-    <!-- 查询  课件类型 -->
-    <select id="queryCourseType" resultType="com.burst.text.dto.CourseTypeBean">
+    <!-- 查询  课件类型 com.burst.text.dto.CourseTypeBean -->
+    <select id="queryCourseType" resultType="com.burst.text.entity.TabSysDictionary">
         select
-            sd.code courseType,
-            sd.name courseTypeName
-        tab_sys_dictionary sd
-        inner join tab_poster_template pt on sd.code = pt.poster_type and pd.is_enable = 1
+        sd.`code`,
+        sd.`name`,
+        sd.img
+        FROM tab_sys_dictionary sd
+        inner join tab_course_info pt on sd.code = pt.couser_type and pt.is_enable = 1
         where sd.data_type = 'courseware_type'
         group by sd.code
         order by sd.seq
@@ -16,26 +17,54 @@
 
     <!-- 获取 课件列表数据 -->
     <select id="queryCourseWareList" resultType="com.burst.text.entity.TabCourseInfo" parameterType="map">
-      select
-        id
+        select
+        id,
         couser_title couserTitle,
         course_img courseImg,
         use_scope useScope,
         price,
-        original_price originalPrice,
-      from tab_course_info
-      where is_enable = 1
-      <if test="couserType != null and couserType !=''">
-        and couser_type = #{couserType}
-      </if>
+        original_price originalPrice
+        from tab_course_info
+        where is_enable = 1
+        <if test="courseType != null and courseType !=''">
+            and couser_type = #{courseType}
+        </if>
     </select>
 
     <!-- 获取 课件详情 -->
-    <select id="queryCourseWare" resultType="string" parameterType="map">
+    <select id="queryCourseWare" resultType="com.burst.text.entity.TabCourseInfo" parameterType="map">
         select
-          couser_url
+        couser_url couserUrl,
+        use_scope useScope
         from tab_course_info
         where is_enable = 1
         and id = #{courseId}
     </select>
+
+    <!-- 保存课件数据 -->
+    <insert id="saveCourseWare" parameterType="com.burst.text.entity.TabCourseInfo">
+        insert into tab_course_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and id!=''">id,</if>
+            <if test="couserTitle != null and couserTitle!=''">couser_title,</if>
+            <if test="courseImg != null and courseImg!=''">course_img,</if>
+            <if test="couserUrl != null and couserUrl!=''">couser_url,</if>
+            <if test="couserClass != null and couserClass!=''">couser_class,</if>
+            <if test="couserType != null and couserType!=''">couser_type,</if>
+            <if test="useScope != null and useScope!=''">use_scope,</if>
+            created_date,
+            updated_date,
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null and id!=''">#{id},</if>
+            <if test="couserTitle != null and couserTitle!=''">#{couserTitle},</if>
+            <if test="courseImg != null and courseImg!=''">#{courseImg},</if>
+            <if test="couserUrl != null and couserUrl!=''">#{couserUrl},</if>
+            <if test="couserClass != null and couserClass!=''">#{couserClass},</if>
+            <if test="couserType != null and couserType!=''">#{couserType},</if>
+            <if test="useScope != null and useScope!=''">#{useScope},</if>
+            SYSDATE(),
+            SYSDATE(),
+        </trim>
+    </insert>
 </mapper>

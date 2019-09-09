@@ -1,5 +1,7 @@
 package com.burst.text.entity;
 
+import com.burst.text.util.JsonURLDateSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -10,7 +12,9 @@ import java.util.Date;
 public class TabCourseInfo implements Serializable {
     private String id;
     private String couserTitle;
+    @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL, using = JsonURLDateSerializer.class)
     private String courseImg;
+    @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL, using = JsonURLDateSerializer.class)
     private String couserUrl;
     private String couserClass;
     private String couserType;

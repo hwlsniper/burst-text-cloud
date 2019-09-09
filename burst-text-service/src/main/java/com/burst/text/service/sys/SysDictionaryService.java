@@ -12,6 +12,7 @@ public interface SysDictionaryService {
 
     /**
      * 根据字典数据类型 查询字典表数据
+     *
      * @param dataType
      * @return
      */

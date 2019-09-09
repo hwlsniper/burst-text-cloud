@@ -11,12 +11,14 @@ public interface PosterService {
 
     /**
      * 获取海报类型
+     *
      * @return
      */
     Result queryPosterType();
 
     /**
      * 获取海报列表数据
+     *
      * @param param
      * @return
      */
@@ -24,6 +26,7 @@ public interface PosterService {
 
     /**
      * 获取海报信息
+     *
      * @param param
      * @return
      */
@@ -31,6 +34,7 @@ public interface PosterService {
 
     /**
      * 获取用户姓名、头像、电话、二维码(或平台的)
+     *
      * @param flag
      * @return
      */
@@ -38,6 +42,7 @@ public interface PosterService {
 
     /**
      * 保存海报信息
+     *
      * @param poster
      * @return
      */

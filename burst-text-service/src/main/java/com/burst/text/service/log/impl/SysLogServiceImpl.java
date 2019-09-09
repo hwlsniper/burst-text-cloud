@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * 系统日志 service
+ *
  * @author Administrator
  */
 @Service
@@ -17,7 +18,7 @@ public class SysLogServiceImpl implements SysLogService {
     private TabSysLogMapper sysLogMapper;
 
     @Override
-    public int saveSysLog(TabSysLog sysLog){
+    public int saveSysLog(TabSysLog sysLog) {
 
         return 0;
     }

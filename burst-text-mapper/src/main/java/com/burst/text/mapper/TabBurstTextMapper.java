@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
+
 @Mapper
 public interface TabBurstTextMapper {
     long countByExample(TabBurstTextExample example);
@@ -32,7 +33,9 @@ public interface TabBurstTextMapper {
 
     int updateByPrimaryKey(TabBurstText record);
 
-    List<TabBurstText> queryBurstText(Map<String, Object> param);
+    List<TabBurstText> queryBurstTextList(Map<String, Object> param);
 
-    List<TabSysDictionary> querySysDictionary(Map<String, Object> param);
+    List<TabSysDictionary> queryBurstTextType(Map<String, Object> param);
+
+    TabBurstText queryBurstText(@Param("burstId") String burstId);
 }

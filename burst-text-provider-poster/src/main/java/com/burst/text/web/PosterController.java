@@ -15,6 +15,7 @@ import java.util.Map;
 
 /**
  * 海报
+ *
  * @author Administrator
  */
 @RestController
@@ -25,11 +26,12 @@ public class PosterController {
 
     /**
      * 获取海报类型
+     *
      * @param request
      * @return
      */
     @GetMapping("/poster/queryPosterType")
-    public Result queryPosterType(HttpServletRequest request){
+    public Result queryPosterType(HttpServletRequest request) {
         Result result = Result.responseSuccess();
         result = posterService.queryPosterType();
         return result;
@@ -37,14 +39,15 @@ public class PosterController {
 
     /**
      * 获取海报列表
+     *
      * @param request
      * @return
      */
     @GetMapping("/poster/queryPosterList")
-    public Result queryPosterList(HttpServletRequest request, @RequestParam String posterType){
+    public Result queryPosterList(HttpServletRequest request, @RequestParam String posterType) {
         Result result = Result.responseSuccess();
         Map<String, Object> param = new HashMap<>();
-        param.put("posterType",posterType);
+        param.put("posterType", posterType);
         int pageNum = MathUtil.toInt(request.getParameter("pageNum"), 1);
         int pageSize = MathUtil.toInt(request.getParameter("pageNum"), 20);
         result = posterService.queryPosterList(param, pageNum, pageSize);
@@ -53,13 +56,15 @@ public class PosterController {
 
     /**
      * 获取海报
+     *
      * @param posterId
      * @return
      */
     @GetMapping("/poster/queryPoster")
-    public Result queryPoster(@RequestParam String posterId){
+    public Result queryPoster(@RequestParam String posterId) {
         Result result = Result.responseSuccess();
         Map<String, Object> param = new HashMap<>();
+        param.put("posterId", posterId);
         result = posterService.queryPoster(param);
         return result;
     }
@@ -68,11 +73,12 @@ public class PosterController {
      * 编辑海报
      * 显示头像、电话、平台二维码
      * flag:1 表示的是获取平台的二维码  2：表示获取的是个人二维码
+     *
      * @param request
      * @return
      */
     @GetMapping("/poster/editPoster/{flag}")
-    public Result editPoster(HttpServletRequest request, @PathVariable("flag") int flag){
+    public Result editPoster(HttpServletRequest request, @PathVariable("flag") int flag) {
         Result result = Result.responseSuccess();
         result = posterService.queryUserInfo(flag);
         return result;

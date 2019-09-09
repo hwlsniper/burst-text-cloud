@@ -1,0 +1,1184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/a.dummy">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/BurstTextAdminApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/common/CommonStaticConstant.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/config/AliyunConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/config/FilePathConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/config/QiniuConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/config/UploadConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/mapper/AdminUserMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/mapper/AdminUserMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/mapper/BurstTextMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/mapper/BurstTextMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/mapper/SysDictionaryMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/mapper/SysDictionaryMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/model/AdminUserBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/model/BurstTextBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/model/BurstTextInfo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/model/BusrtTextBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/model/Menu.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/model/MenuTree.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/model/RoleMenu.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/model/SysDictionaryBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/model/UploadBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/service/BurstTextService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/service/CourseService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/service/LoginService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/service/MemberService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/service/PosterService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/service/SysDictionaryService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/service/UploadService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/service/UserService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/service/impl/BurstTextServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/service/impl/SysDictionaryServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/service/impl/UploadServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/service/impl/UserServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/util/DateUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/util/IdWorker.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/util/ImageUrlUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/util/JsonURLDateSerializer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/util/JsonUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/util/ReturnUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/web/BurstTextController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/web/CourseController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/web/LoginController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/web/MemberController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/web/PosterController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/web/UeditorController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/java/com/burst/text/web/UploadController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/resources/application.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/resources/bootstrap.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/resources/static/js/common.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/resources/static/js/confirm.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/resources/templates/console/burst/from.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/resources/templates/console/burst/index.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/resources/templates/console/footer.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/resources/templates/console/header.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/resources/templates/console/index.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/resources/templates/console/login.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/resources/templates/console/poster/index.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/resources/templates/console/right.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/resources/templates/console/upload/upload.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-admin/src/main/resources/templates/index.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-common/burst-text-entity/src/main/java/com/burst/text/dto/UserTokenBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-common/burst-text-entity/src/main/java/com/burst/text/entity/TabBurstText.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-common/burst-text-entity/src/main/java/com/burst/text/entity/TabUserInfo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-common/burst-text-util/src/main/java/com/burst/text/util/Constants.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-common/burst-text-util/src/main/java/com/burst/text/util/ImageUrlUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-common/burst-text-util/src/main/java/com/burst/text/util/SysCommonConstant.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-common/burst-text-util/src/main/java/com/burst/text/util/WechatCommon.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-mapper/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-mapper/src/main/java/com/burst/text/mapper/TabBurstTextMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-mapper/src/main/java/com/burst/text/mapper/TabBurstTextMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-mapper/src/main/java/com/burst/text/mapper/TabUserInfoMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-mapper/src/main/java/com/burst/text/mapper/TabUserInfoMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-mapper/src/main/java/com/burst/text/mapper/TabUserTokenMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-mapper/src/main/java/com/burst/text/mapper/TabUserTokenMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-mapper/src/main/java/com/burst/text/mapper/TabUserWechatMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-mapper/src/main/java/com/burst/text/mapper/TabUserWechatMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-mapper/src/main/resources/mybatis-generator.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-provider-burst/src/main/java/com/burst/text/web/BurstTextController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-provider-burst/src/main/resources/bootstrap.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-provider-user/src/main/java/com/burst/text/web/UploadImgController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-provider-user/src/main/java/com/burst/text/web/UserController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-provider-user/src/main/java/com/burst/text/web/WxAuthController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-provider-user/src/main/resources/bootstrap.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-service/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-service/src/main/java/com/burst/text/core/aop/SystemLogAspect.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-service/src/main/java/com/burst/text/core/wechat/WechatService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-service/src/main/java/com/burst/text/core/wechat/impl/WechatServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-service/src/main/java/com/burst/text/service/burst/BurstTextService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-service/src/main/java/com/burst/text/service/burst/impl/BurstTextServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-service/src/main/java/com/burst/text/service/upload/UploadService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-service/src/main/java/com/burst/text/service/upload/impl/UploadServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-service/src/main/java/com/burst/text/service/user/UserService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-service/src/main/java/com/burst/text/service/user/impl/UserServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-service/src/main/java/com/burst/text/service/user/impl/UserTokenServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-zuul/src/main/resources/application.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/burst-text-zuul/src/main/resources/bootstrap.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/aliyun/AliyunOSS.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/annotation/SysLog.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/constant/CommonConstant.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/constant/LogLevel.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/constant/LogType.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/excepte/ErpException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/interceptors/ProcessInterceptor.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/page/ERPage.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/result/ConstantStatus.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/result/Result.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/unique/DefaultIdGenerator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/unique/DefaultIdGeneratorConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/unique/IdGenerator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/unique/IdGeneratorConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/unique/SeqGenerator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/util/EntityJudgeUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/util/MathUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/main/java/com/exx/dzj/util/TokenBuilder.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-common/src/test/java/com/exx/dzj/unique/TestStandaloneIdGenerator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/entity/accountatt/AccountAttributeBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/entity/contactway/ContactWayBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/entity/customer/CustomerSupplierBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/entity/customer/CustomerSupplierInfo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/entity/customer/CustomerSupplierModel.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/mapper/accountatt/AccountAttributeBeanMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/mapper/accountatt/AccountAttributeBeanMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/mapper/contactway/ContactWayBeanMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/mapper/contactway/ContactWayBeanMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/mapper/customer/CustomerSupplierBeanMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/mapper/customer/CustomerSupplierBeanMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/service/accountatt/AccountAttributeService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/service/accountatt/impl/AccountAttributeServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/service/contactway/ContactWayService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/service/contactway/impl/ContactWayServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/service/customer/CustomerService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-customer/src/main/java/com/exx/dzj/service/customer/impl/CustomerServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-log/src/main/java/com/exx/dzj/entity/salelog/SaleLog.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-log/src/main/java/com/exx/dzj/mapper/salelog/SaleLogMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-log/src/main/java/com/exx/dzj/service/syslog/impl/SysLogServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/ErpMainApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/aspect/SysLogAspect.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/config/AliyunConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/config/AliyunOSS.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/config/AppConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/config/JacksonConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/controller/customer/CustomerController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/controller/login/LoginController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/controller/stock/StockController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/controller/user/UserController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/facade/customer/CustomerSupplierFacade.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/facade/customer/CustomerSupplierService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/facade/customer/impl/CustomerSupplierServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/facade/image/ImageUploadFacade.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/facade/login/LoginFacade.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/facade/stock/StockFacade.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/facade/user/UserFacade.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/facade/user/UserTokenFacade.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/java/com/exx/dzj/interceptors/ProcessInterceptor.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/resources/application-test.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-main/src/main/resources/mybatis-generator.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-market/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-market/src/main/java/com/exx/dzj/entity/market/SaleGoodsDetailBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-market/src/main/java/com/exx/dzj/entity/market/SaleInfo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-market/src/main/java/com/exx/dzj/entity/market/SaleReceiptsDetails.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-market/src/main/java/com/exx/dzj/mapper/market/SaleGoodsDetailBeanMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-market/src/main/java/com/exx/dzj/mapper/market/SaleGoodsDetailBeanMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-market/src/main/java/com/exx/dzj/mapper/market/SaleInfoMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-market/src/main/java/com/exx/dzj/mapper/market/SaleInfoMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-market/src/main/java/com/exx/dzj/mapper/market/SaleReceiptsDetailsMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-market/src/main/java/com/exx/dzj/mapper/market/SaleReceiptsDetailsMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-purchase/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-purchase/src/main/java/com/exx/dzj/entity/purchase/PurchaseGoodsDetailBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-purchase/src/main/java/com/exx/dzj/entity/purchase/PurchaseInfo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-purchase/src/main/java/com/exx/dzj/entity/purchase/PurchaseReceiptsDetailsBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-purchase/src/main/java/com/exx/dzj/mapper/purchase/PurchaseGoodsDetailBeanMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-purchase/src/main/java/com/exx/dzj/mapper/purchase/PurchaseGoodsDetailBeanMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-purchase/src/main/java/com/exx/dzj/mapper/purchase/PurchaseInfoMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-purchase/src/main/java/com/exx/dzj/mapper/purchase/PurchaseInfoMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-purchase/src/main/java/com/exx/dzj/mapper/purchase/PurchaseReceiptsDetailsBeanMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-purchase/src/main/java/com/exx/dzj/mapper/purchase/PurchaseReceiptsDetailsBeanMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/entity/dept/DeptInfoBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/entity/dictionary/DictionaryInfo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/entity/dictionary/DictionaryTypeBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/entity/icon/IconBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/entity/log/LogBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/entity/menu/MenuInfo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/entity/role/RoleBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/entity/role/RoleMenuBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/entity/user/UserInfo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/entity/user/UserRole.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/entity/user/UserTokenBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/dept/DeptInfoBeanMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/dept/DeptInfoBeanMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/dictionary/DictionaryInfoMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/dictionary/DictionaryInfoMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/dictionary/DictionaryTypeBeanMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/dictionary/DictionaryTypeBeanMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/icon/IconBeanMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/icon/IconBeanMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/log/LogBeanMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/log/LogBeanMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/menu/MenuInfoMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/menu/MenuInfoMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/role/RoleBeanMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/role/RoleBeanMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/role/RoleMenuBeanMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/role/RoleMenuBeanMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/user/UserInfoMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/user/UserInfoMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/user/UserRoleMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/user/UserRoleMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/user/UserTokenMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/mapper/user/UserTokenMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/service/dictionary/DictionaryService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/service/dictionary/impl/DictionaryServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/service/login/LoginService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/service/login/impl/LoginServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/service/user/UserService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/service/user/UserTokenService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/service/user/impl/UserServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-user/src/main/java/com/exx/dzj/service/user/impl/UserTokenServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-warehouse/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-warehouse/src/main/java/com/exx/dzj/entity/stock/StockInfo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-warehouse/src/main/java/com/exx/dzj/entity/stock/StockNumPrice.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-warehouse/src/main/java/com/exx/dzj/mapper/stock/StockInfoMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-warehouse/src/main/java/com/exx/dzj/mapper/stock/StockInfoMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-warehouse/src/main/java/com/exx/dzj/mapper/stock/StockNumPriceMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-warehouse/src/main/java/com/exx/dzj/mapper/stock/StockNumPriceMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-warehouse/src/main/java/com/exx/dzj/service/stock/StockService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/erp-warehouse/src/main/java/com/exx/dzj/service/stock/impl/StockServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../erp/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

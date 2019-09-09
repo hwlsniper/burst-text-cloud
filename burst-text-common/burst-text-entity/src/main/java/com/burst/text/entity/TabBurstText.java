@@ -1,6 +1,12 @@
 package com.burst.text.entity;
 
+import com.burst.text.util.JsonURLDateSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class TabBurstText {
     private String id;
@@ -11,7 +17,10 @@ public class TabBurstText {
 
     private String shortTitle;
 
+    @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL, using = JsonURLDateSerializer.class)
     private String titleImg;
+
+    private List<String> titleImgs;
 
     private String content;
 
@@ -71,6 +80,16 @@ public class TabBurstText {
 
     public void setTitleImg(String titleImg) {
         this.titleImg = titleImg == null ? null : titleImg.trim();
+    }
+
+    public List<String> getTitleImgs() {
+        return titleImgs;
+    }
+
+    public void setTitleImgs(String titleImg) {
+        if (StringUtils.isNotBlank(titleImg)) {
+            titleImgs = Arrays.asList(titleImg.split(","));
+        }
     }
 
     public String getContent() {

@@ -24,22 +24,23 @@ public class SysDictionaryServiceImpl implements SysDictionaryService {
 
     /**
      * 根据字典数据类型 查询字典表数据
+     *
      * @param dataType
      * @return
      */
     @Override
-    @Log(operationType="querySysDictionary操作",operationName="查询字典数据")
-    public Result querySysDictionary(String dataType){
+    @Log(operationType = "querySysDictionary操作", operationName = "查询字典数据")
+    public Result querySysDictionary(String dataType) {
         Result result = Result.responseSuccess();
-        try{
+        try {
             TabSysDictionaryExample example = new TabSysDictionaryExample();
             TabSysDictionaryExample.Criteria criteria = example.createCriteria();
             criteria.andDataTypeEqualTo(dataType);
             criteria.andIsEnableEqualTo(SysCommonConstant.DEFAULT_COMMON_ONE);
             List<TabSysDictionary> lists = sysDictionaryMapper.selectByExample(example);
             result.setData(lists);
-        }catch(Exception ex){
-            logger.error("异常方法:{}异常信息:{}", SysDictionaryServiceImpl.class.getName()+".querySysDictionary", ex.getMessage());
+        } catch (Exception ex) {
+            logger.error("异常方法:{}异常信息:{}", SysDictionaryServiceImpl.class.getName() + ".querySysDictionary", ex.getMessage());
             result.setCode(400);
             result.setMsg("查询字典数据失败!");
         }

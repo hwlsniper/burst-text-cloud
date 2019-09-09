@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * 系统日志 service
+ *
  * @author Administrator
  */
 @Service
@@ -12,6 +13,7 @@ public interface SysLogService {
 
     /**
      * 保存日志
+     *
      * @param sysLog
      * @return
      */
